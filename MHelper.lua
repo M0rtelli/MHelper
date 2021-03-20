@@ -37,7 +37,7 @@ local encoding = require "encoding" --Ê ïåðåìåííûì
 encoding.default = 'CP1251'
 u8 = encoding.UTF8 
 script_name('HELPER BY DEXTER MARTELLI')
-script_version('2.4')
+script_version('2.6')
 local cfg = inicfg.load({
     DialogID = {
     	DID = 579
