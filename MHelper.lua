@@ -33,7 +33,7 @@ local ffi = require "ffi"
 local getBonePosition = ffi.cast("int (__thiscall*)(void*, float*, int, bool)", 0x5E4280)
 Enable = false
 local first = 'dada'
-local encoding = require "encoding" --К переменным
+local encoding = require "encoding" --ГЉ ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г»Г¬
 encoding.default = 'CP1251'
 u8 = encoding.UTF8 
 script_name('HELPER BY DEXTER MARTELLI')
@@ -57,7 +57,7 @@ local eD = false
 local textdial = ''
 
 function sampev.onShowDialog(id, style, title, button1, button2, text)
-if title == 'Ответ' then
+if title == 'ГЋГІГўГҐГІ' then
 local ne1, ne2 = text:match('(%w+_%w+):%s?{%x%x%x%x%x%x}%s?(.-)\n')
 local cid = ''
 cnick = ne1
@@ -112,12 +112,12 @@ end
 	local so, sp = getScreenResolution()
 	imgui.SetNextWindowPos(imgui.ImVec2(so / 2.8, sp / 2), imgui.ImVec2(0.5, 0.5))
     imgui.SetNextWindowSize(imgui.ImVec2(500, 250)) --imgui.WindowFlags.MenuBar
-    imgui.Begin(u8'MTools || Разраб: Dexter_Martelli', main_window_state, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoCollapse)
+    imgui.Begin(u8'MTools || ГђГ Г§Г°Г ГЎ: Dexter_Martelli', main_window_state, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoCollapse)
 	local pp = ""
 	if ccd == nil then
-	imgui.Text(u8"Жалоба/Вопрос от " .. cnick .. '[OFF]:')
+	imgui.Text(u8"Г†Г Г«Г®ГЎГ /Г‚Г®ГЇГ°Г®Г± Г®ГІ " .. cnick .. '[OFF]:')
 	else
-	imgui.Text(u8"Жалоба/Вопрос от " .. cnick .. '[' .. ccd .. ']:')
+	imgui.Text(u8"Г†Г Г«Г®ГЎГ /Г‚Г®ГЇГ°Г®Г± Г®ГІ " .. cnick .. '[' .. ccd .. ']:')
 	end
 	imgui.Separator()
 	pp = string.format(u8" " .. first)
@@ -129,17 +129,17 @@ end
 	imgui.Separator()
 	
 	local ff = ''
-	imgui.InputText(u8'Ответ', answer)
+	imgui.InputText(u8'ГЋГІГўГҐГІ', answer)
 	local btn_size = imgui.ImVec2(100, 25)
-	if imgui.Button(u8'Станд. Ответы',  imgui.ImVec2(100, 25)) then
+	if imgui.Button(u8'Г‘ГІГ Г­Г¤. ГЋГІГўГҐГІГ»',  imgui.ImVec2(100, 25)) then
 	cum1.v = not cum1.v
 	imgui.Process = cum1.v
 	main_window_state.v = not main_window_state.v
     end
 	imgui.SameLine(nil, 3)
-	if imgui.Button(u8'Помочь игроку',  imgui.ImVec2(100, 25)) then
+	if imgui.Button(u8'ГЏГ®Г¬Г®Г·Гј ГЁГЈГ°Г®ГЄГі',  imgui.ImVec2(100, 25)) then
 		enableDialog(true)
-		local ot = string.format('Уважаемый ' .. cnick .. ", сейчас попробую Вам помочь!")
+		local ot = string.format('Г“ГўГ Г¦Г ГҐГ¬Г»Г© ' .. cnick .. ", Г±ГҐГ©Г·Г Г± ГЇГ®ГЇГ°Г®ГЎГіГѕ Г‚Г Г¬ ГЇГ®Г¬Г®Г·Гј!")
 		sampSendDialogResponse(cfg.DialogID.DID, 1, -1, ot)
 		sampCloseCurrentDialogWithButton(0)
 		local tp = string.format('/goto ' .. cnick)
@@ -155,15 +155,15 @@ end
 	  imgui.Process = false
 		end
 			imgui.SameLine(nil, 3)
-			if imgui.Button(u8'Переслать в /a',  imgui.ImVec2(100, 25)) then
+			if imgui.Button(u8'ГЏГҐГ°ГҐГ±Г«Г ГІГј Гў /a',  imgui.ImVec2(100, 25)) then
 		enableDialog(true)
-		local ot1 = string.format('Уважаемый ' .. cnick .. ". Передал Ваш репорт администратору!")
+		local ot1 = string.format('Г“ГўГ Г¦Г ГҐГ¬Г»Г© ' .. cnick .. ". ГЏГҐГ°ГҐГ¤Г Г« Г‚Г Гё Г°ГҐГЇГ®Г°ГІ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Гі!")
 		sampSendDialogResponse(cfg.DialogID.DID, 1, -1, ot1)
 		 lua_thread.create(function()
 		 wait(2000)
 		 sampCloseCurrentDialogWithButton(0)
 		
-		 local per = string.format('/a [РЕПОРТ] ' .. cnick .. ' [' .. ccd .. ']: ' .. first)
+		 local per = string.format('/a [ГђГ…ГЏГЋГђГ’] ' .. cnick .. ' [' .. ccd .. ']: ' .. first)
 		 sampSendChat(per)
 		 end)
 		main_window_state.v = not main_window_state.v
@@ -171,9 +171,9 @@ end
 		end
 		
 		imgui.SameLine(nil, 3)
-		if imgui.Button(u8'Заспавнить',  imgui.ImVec2(100, 25)) then
+		if imgui.Button(u8'Г‡Г Г±ГЇГ ГўГ­ГЁГІГј',  imgui.ImVec2(100, 25)) then
 		enableDialog(true)
-		 		local ot2 = string.format('Уважаемый ' .. cnick .. ". Лечу к Вам на помощь!")
+		 		local ot2 = string.format('Г“ГўГ Г¦Г ГҐГ¬Г»Г© ' .. cnick .. ". Г‹ГҐГ·Гі ГЄ Г‚Г Г¬ Г­Г  ГЇГ®Г¬Г®Г№Гј!")
 		sampSendDialogResponse(cfg.DialogID.DID, 1, -1, ot2)
 		local spa = string.format('/spawn ' .. cnick)
 		lua_thread.create(function()
@@ -186,25 +186,25 @@ end
       main_window_state.v = not main_window_state.v
 	  imgui.Process = false
 		end
-		if imgui.Button(u8'Закрыть вопрос',  imgui.ImVec2(100, 25)) then
+		if imgui.Button(u8'Г‡Г ГЄГ°Г»ГІГј ГўГ®ГЇГ°Г®Г±',  imgui.ImVec2(100, 25)) then
 		enableDialog(true)
 		sampCloseCurrentDialogWithButton(0) 
       main_window_state.v = not main_window_state.v
 	  imgui.Process = false
 		end
 		imgui.SameLine(nil, 3)
-		if imgui.Button(u8'Помощь по GPS',  imgui.ImVec2(100, 25)) then
+		if imgui.Button(u8'ГЏГ®Г¬Г®Г№Гј ГЇГ® GPS',  imgui.ImVec2(100, 25)) then
 		gps1.v = not gps1.v
 		imgui.Process = gps1.v
       main_window_state.v = not main_window_state.v
 		end
 		imgui.SameLine(nil, 3)
-		if imgui.Button(u8"LVL'a работ",  imgui.ImVec2(100, 25)) then
+		if imgui.Button(u8"LVL'a Г°Г ГЎГ®ГІ",  imgui.ImVec2(100, 25)) then
 		lvla.v = not lvla.v
 		imgui.Process = lvla.v
       main_window_state.v = not main_window_state.v
 		end
-		if imgui.CustomButton(u8'Удалить вопрос', imgui.ImVec4(0.0,0.3,1.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec2(100, 25)) then
+		if imgui.CustomButton(u8'Г“Г¤Г Г«ГЁГІГј ГўГ®ГЇГ°Г®Г±', imgui.ImVec4(0.0,0.3,1.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec2(100, 25)) then
 		enableDialog(true)
 		sampCloseCurrentDialogWithButton(1) 
       main_window_state.v = not main_window_state.v
@@ -213,14 +213,14 @@ end
 		
 
 		imgui.SetCursorPos(imgui.ImVec2(335, 215))
-		if imgui.CustomButton(u8'Ответить', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec2(100, 25)) then
-	--	if imgui.Button(u8'Ответить',  imgui.ImVec2(100, 25)) then
+		if imgui.CustomButton(u8'ГЋГІГўГҐГІГЁГІГј', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec2(100, 25)) then
+	--	if imgui.Button(u8'ГЋГІГўГҐГІГЁГІГј',  imgui.ImVec2(100, 25)) then
 		enableDialog(true)
 		local od = tostring(answer.v)
 	--	sampAddChatMessage(u8:decode(od), -1)
 		sampSendDialogResponse(cfg.DialogID.DID, 1, -1, u8:decode(od))
 		enableDialog(false)
-	  -- sampAddChatMessage("{1E90FF}[MHelper] {FA8072}Ладно, закрываю.", -1) 
+	  -- sampAddChatMessage("{1E90FF}[MHelper] {FA8072}Г‹Г Г¤Г­Г®, Г§Г ГЄГ°Г»ГўГ Гѕ.", -1) 
 		main_window_state.v = not main_window_state.v
 		imgui.Process = main_window_state.v
 		end
@@ -232,63 +232,63 @@ end
 			local so, sp = getScreenResolution()
 			imgui.SetNextWindowPos(imgui.ImVec2(so / 2.3, sp / 2), imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(170, 250)) --imgui.WindowFlags.MenuBar
-			imgui.Begin(u8'MTools || Разраб: Dexter_Martelli', lvla, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoCollapse)
-			if imgui.Button(u8"Водитель автобуса",  imgui.ImVec2(130, 25)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Водитель автобуса доступен со 2 уровня.')
+			imgui.Begin(u8'MTools || ГђГ Г§Г°Г ГЎ: Dexter_Martelli', lvla, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoCollapse)
+			if imgui.Button(u8"Г‚Г®Г¤ГЁГІГҐГ«Гј Г ГўГІГ®ГЎГіГ±Г ",  imgui.ImVec2(130, 25)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Г‚Г®Г¤ГЁГІГҐГ«Гј Г ГўГІГ®ГЎГіГ±Г  Г¤Г®Г±ГІГіГЇГҐГ­ Г±Г® 2 ГіГ°Г®ГўГ­Гї.')
 			lvla.v = not lvla.v
 			imgui.Process = lvla.v
 			end
-			if imgui.Button(u8"Водитель такси",  imgui.ImVec2(130, 25)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Водитель такси доступен со 2 уровня.')
+			if imgui.Button(u8"Г‚Г®Г¤ГЁГІГҐГ«Гј ГІГ ГЄГ±ГЁ",  imgui.ImVec2(130, 25)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Г‚Г®Г¤ГЁГІГҐГ«Гј ГІГ ГЄГ±ГЁ Г¤Г®Г±ГІГіГЇГҐГ­ Г±Г® 2 ГіГ°Г®ГўГ­Гї.')
 			lvla.v = not lvla.v
 			imgui.Process = lvla.v
 			end
-			if imgui.Button(u8"Уборщик улиц",  imgui.ImVec2(130, 25)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Уборщик улиц доступен со 2 уровня.')
+			if imgui.Button(u8"Г“ГЎГ®Г°Г№ГЁГЄ ГіГ«ГЁГ¶",  imgui.ImVec2(130, 25)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Г“ГЎГ®Г°Г№ГЁГЄ ГіГ«ГЁГ¶ Г¤Г®Г±ГІГіГЇГҐГ­ Г±Г® 2 ГіГ°Г®ГўГ­Гї.')
 			lvla.v = not lvla.v
 			imgui.Process = lvla.v
 			end
-			if imgui.Button(u8"Механик",  imgui.ImVec2(130, 25)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Механик доступен с 3 уровня.')
+			if imgui.Button(u8"ГЊГҐГµГ Г­ГЁГЄ",  imgui.ImVec2(130, 25)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'ГЊГҐГµГ Г­ГЁГЄ Г¤Г®Г±ГІГіГЇГҐГ­ Г± 3 ГіГ°Г®ГўГ­Гї.')
 			lvla.v = not lvla.v
 			imgui.Process = lvla.v
 			end
-			if imgui.Button(u8"Дальнобойщик",  imgui.ImVec2(130, 25)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Водитель такси доступен с 4 уровня.')
+			if imgui.Button(u8"Г„Г Г«ГјГ­Г®ГЎГ®Г©Г№ГЁГЄ",  imgui.ImVec2(130, 25)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Г‚Г®Г¤ГЁГІГҐГ«Гј ГІГ ГЄГ±ГЁ Г¤Г®Г±ГІГіГЇГҐГ­ Г± 4 ГіГ°Г®ГўГ­Гї.')
 			lvla.v = not lvla.v
 			imgui.Process = lvla.v
 			end
-			if imgui.Button(u8"Развозчик продуктов",  imgui.ImVec2(130, 25)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Развозчик продуктов доступен с 4 уровня.')
+			if imgui.Button(u8"ГђГ Г§ГўГ®Г§Г·ГЁГЄ ГЇГ°Г®Г¤ГіГЄГІГ®Гў",  imgui.ImVec2(130, 25)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'ГђГ Г§ГўГ®Г§Г·ГЁГЄ ГЇГ°Г®Г¤ГіГЄГІГ®Гў Г¤Г®Г±ГІГіГЇГҐГ­ Г± 4 ГіГ°Г®ГўГ­Гї.')
 			lvla.v = not lvla.v
 			imgui.Process = lvla.v
 			end
-			if imgui.Button(u8"Развозчик топлива",  imgui.ImVec2(130, 25)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Развозчик топлива доступен с 4 уровня.')
+			if imgui.Button(u8"ГђГ Г§ГўГ®Г§Г·ГЁГЄ ГІГ®ГЇГ«ГЁГўГ ",  imgui.ImVec2(130, 25)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'ГђГ Г§ГўГ®Г§Г·ГЁГЄ ГІГ®ГЇГ«ГЁГўГ  Г¤Г®Г±ГІГіГЇГҐГ­ Г± 4 ГіГ°Г®ГўГ­Гї.')
 			lvla.v = not lvla.v
 			imgui.Process = lvla.v
 			end
-			if imgui.Button(u8"Инкассатор",  imgui.ImVec2(130, 25)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Инкассатор доступен со 5 уровня.')
+			if imgui.Button(u8"Г€Г­ГЄГ Г±Г±Г ГІГ®Г°",  imgui.ImVec2(130, 25)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Г€Г­ГЄГ Г±Г±Г ГІГ®Г° Г¤Г®Г±ГІГіГЇГҐГ­ Г±Г® 5 ГіГ°Г®ГўГ­Гї.')
 			lvla.v = not lvla.v
 			imgui.Process = lvla.v
 			end
-			if imgui.Button(u8"Мореплаватель",  imgui.ImVec2(130, 25)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Мореплаватель доступен со 6 уровня.')
+			if imgui.Button(u8"ГЊГ®Г°ГҐГЇГ«Г ГўГ ГІГҐГ«Гј",  imgui.ImVec2(130, 25)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'ГЊГ®Г°ГҐГЇГ«Г ГўГ ГІГҐГ«Гј Г¤Г®Г±ГІГіГЇГҐГ­ Г±Г® 6 ГіГ°Г®ГўГ­Гї.')
 			lvla.v = not lvla.v
 			imgui.Process = lvla.v
 			end
-			if imgui.Button(u8"Вертолетчик",  imgui.ImVec2(130, 25)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Вертолетчик доступен со 7 уровня.')
+			if imgui.Button(u8"Г‚ГҐГ°ГІГ®Г«ГҐГІГ·ГЁГЄ",  imgui.ImVec2(130, 25)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Г‚ГҐГ°ГІГ®Г«ГҐГІГ·ГЁГЄ Г¤Г®Г±ГІГіГЇГҐГ­ Г±Г® 7 ГіГ°Г®ГўГ­Гї.')
 			lvla.v = not lvla.v
 			imgui.Process = lvla.v
 			end
-			if imgui.Button(u8"Пилот",  imgui.ImVec2(130, 25)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Пилот доступен со 9 уровня.')
+			if imgui.Button(u8"ГЏГЁГ«Г®ГІ",  imgui.ImVec2(130, 25)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'ГЏГЁГ«Г®ГІ Г¤Г®Г±ГІГіГЇГҐГ­ Г±Г® 9 ГіГ°Г®ГўГ­Гї.')
 			lvla.v = not lvla.v
 			imgui.Process = lvla.v
 			end
-		if imgui.CustomButton(u8'Назад', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec2(130, 25)) then
+		if imgui.CustomButton(u8'ГЌГ Г§Г Г¤', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec2(130, 25)) then
 			lvla.v = not lvla.v
 			main_window_state.v = not main_window_state.v
 			end
@@ -301,42 +301,42 @@ end
 			imgui.SetNextWindowPos(imgui.ImVec2(so / 2.3, sp / 2), imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(200, 350)) --imgui.WindowFlags.MenuBar
 			imgui.Begin(u8'GPS', gps1.v, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoCollapse)
-			if imgui.Button(u8'1. Важные места',  imgui.ImVec2(130, 30)) then
+			if imgui.Button(u8'1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ ',  imgui.ImVec2(130, 30)) then
 			gps2.v = not gps2.v
 			imgui.Process = gps2.v
 			gps1.v = not gps1.v
 			end
-			if imgui.Button(u8'2. Работы',  imgui.ImVec2(130, 30)) then
+			if imgui.Button(u8'2. ГђГ ГЎГ®ГІГ»',  imgui.ImVec2(130, 30)) then
 			gps3.v = not gps3.v
 			imgui.Process = gps3.v
 			gps1.v = not gps1.v
 			end
-			if imgui.Button(u8'3. Официальные орг.',  imgui.ImVec2(130, 30)) then
+			if imgui.Button(u8'3. ГЋГґГЁГ¶ГЁГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ.',  imgui.ImVec2(130, 30)) then
 			gps4.v = not gps4.v
 			imgui.Process = gps4.v
 			gps1.v = not gps1.v
 			end
-			if imgui.Button(u8'4. Нелегал',  imgui.ImVec2(130, 30)) then
+			if imgui.Button(u8'4. ГЌГҐГ«ГҐГЈГ Г«',  imgui.ImVec2(130, 30)) then
 			gps5.v = not gps5.v
 			imgui.Process = gps5.v
 			gps1.v = not gps1.v
 			end
-			if imgui.Button(u8'5. Автосалоны',  imgui.ImVec2(130, 30)) then
+			if imgui.Button(u8'5. ГЂГўГІГ®Г±Г Г«Г®Г­Г»',  imgui.ImVec2(130, 30)) then
 			gps6.v = not gps6.v
 			imgui.Process = gps6.v
 			gps1.v = not gps1.v
 			end
-			if imgui.Button(u8'6. Разное',  imgui.ImVec2(130, 30)) then
+			if imgui.Button(u8'6. ГђГ Г§Г­Г®ГҐ',  imgui.ImVec2(130, 30)) then
 			gps7.v = not gps7.v
 			imgui.Process = gps7.v
 			gps1.v = not gps1.v
 			end
-			if imgui.Button(u8'7. Поиск мест',  imgui.ImVec2(130, 30)) then
+			if imgui.Button(u8'7. ГЏГ®ГЁГ±ГЄ Г¬ГҐГ±ГІ',  imgui.ImVec2(130, 30)) then
 			gps8.v = not gps8.v
 			imgui.Process = gps8.v
 			gps1.v = not gps1.v
 			end
- 			if imgui.Button(u8'Назад',  imgui.ImVec2(130, 30)) then
+ 			if imgui.Button(u8'ГЌГ Г§Г Г¤',  imgui.ImVec2(130, 30)) then
 			main_window_state.v = not main_window_state.v
 			imgui.Process = main_window_state.v
 			gps1.v = not gps1.v
@@ -351,138 +351,138 @@ end
 			imgui.SetNextWindowPos(imgui.ImVec2(so / 2.3, sp / 2), imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(200, 350)) --imgui.WindowFlags.MenuBar
 			imgui.Begin(u8'GPS', gps2.v, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoCollapse)
-			if imgui.Button(u8'1. Мэрия',  imgui.ImVec2(130, 30)) then
+			if imgui.Button(u8'1. ГЊГЅГ°ГЁГї',  imgui.ImVec2(130, 30)) then
 			enableDialog(true)
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 1. Мэрия') 
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 1. ГЊГЅГ°ГЁГї') 
 			imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'2. ЖДЛС',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 2. ЖДЛС') 
+			if imgui.Button(u8'2. Г†Г„Г‹Г‘',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 2. Г†Г„Г‹Г‘') 
 			imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'3. Авто. Вок. ЛС',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 3. Автовокзал Los-Santos') imgui.Process = false
+			if imgui.Button(u8'3. ГЂГўГІГ®. Г‚Г®ГЄ. Г‹Г‘',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 3. ГЂГўГІГ®ГўГ®ГЄГ§Г Г« Los-Santos') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'4. Обменник ЛС',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 4. Монетный торговец [LS]') imgui.Process = false
+			if imgui.Button(u8'4. ГЋГЎГ¬ГҐГ­Г­ГЁГЄ Г‹Г‘',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 4. ГЊГ®Г­ГҐГІГ­Г»Г© ГІГ®Г°ГЈГ®ГўГҐГ¶ [LS]') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'5. Риелторка',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 5. Риелторское агенство [LS]') imgui.Process = false
+			if imgui.Button(u8'5. ГђГЁГҐГ«ГІГ®Г°ГЄГ ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 5. ГђГЁГҐГ«ГІГ®Г°Г±ГЄГ®ГҐ Г ГЈГҐГ­Г±ГІГўГ® [LS]') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'6. Порт',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 6. Порт [LS]') imgui.Process = false
+			if imgui.Button(u8'6. ГЏГ®Г°ГІ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 6. ГЏГ®Г°ГІ [LS]') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'7. Банк LS',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 7. Банк Los-Santos') imgui.Process = false
+			if imgui.Button(u8'7. ГЃГ Г­ГЄ LS',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 7. ГЃГ Г­ГЄ Los-Santos') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'8. Банк SF',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 8. Банк San-Fierro') imgui.Process = false
+			if imgui.Button(u8'8. ГЃГ Г­ГЄ SF',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 8. ГЃГ Г­ГЄ San-Fierro') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'9. Банк LV',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 9. Банк Las-Venturas') imgui.Process = false
+			if imgui.Button(u8'9. ГЃГ Г­ГЄ LV',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 9. ГЃГ Г­ГЄ Las-Venturas') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'10. Больница LS',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 10. Больница Los-Santos') imgui.Process = false
+			if imgui.Button(u8'10. ГЃГ®Г«ГјГ­ГЁГ¶Г  LS',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 10. ГЃГ®Г«ГјГ­ГЁГ¶Г  Los-Santos') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'11. Больница SF',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 11. Больница San-Fierro') imgui.Process = false
+			if imgui.Button(u8'11. ГЃГ®Г«ГјГ­ГЁГ¶Г  SF',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 11. ГЃГ®Г«ГјГ­ГЁГ¶Г  San-Fierro') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'12. Больница LV',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 12. Больница Las') imgui.Process = false
+			if imgui.Button(u8'12. ГЃГ®Г«ГјГ­ГЁГ¶Г  LV',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 12. ГЃГ®Г«ГјГ­ГЁГ¶Г  Las') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'13. Автошкола',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 13. Автошкола') imgui.Process = false
+			if imgui.Button(u8'13. ГЂГўГІГ®ГёГЄГ®Г«Г ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 13. ГЂГўГІГ®ГёГЄГ®Г«Г ') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'14. Центр Вод/Т',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 14. Центр водного транспорт') imgui.Process = false
+			if imgui.Button(u8'14. Г–ГҐГ­ГІГ° Г‚Г®Г¤/Г’',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 14. Г–ГҐГ­ГІГ° ГўГ®Г¤Г­Г®ГЈГ® ГІГ°Г Г­Г±ГЇГ®Г°ГІ') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'15. Авиашкола',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 15. Авиашкола') imgui.Process = false
+			if imgui.Button(u8'15. ГЂГўГЁГ ГёГЄГ®Г«Г ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 15. ГЂГўГЁГ ГёГЄГ®Г«Г ') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'16. Военкомат',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 16. Военкомат') imgui.Process = false
+			if imgui.Button(u8'16. Г‚Г®ГҐГ­ГЄГ®Г¬Г ГІ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 16. Г‚Г®ГҐГ­ГЄГ®Г¬Г ГІ') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'17. Центр. рынок',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 17. Центральный рынок') imgui.Process = false
+			if imgui.Button(u8'17. Г–ГҐГ­ГІГ°. Г°Г»Г­Г®ГЄ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 17. Г–ГҐГ­ГІГ°Г Г«ГјГ­Г»Г© Г°Г»Г­Г®ГЄ') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'18. Сем. отель ЛС',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 18. Семейный отель [LS]') imgui.Process = false
+			if imgui.Button(u8'18. Г‘ГҐГ¬. Г®ГІГҐГ«Гј Г‹Г‘',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 18. Г‘ГҐГ¬ГҐГ©Г­Г»Г© Г®ГІГҐГ«Гј [LS]') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'19. Сем. отель ЛВ',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 19. Семейный отель [LV]') imgui.Process = false
+			if imgui.Button(u8'19. Г‘ГҐГ¬. Г®ГІГҐГ«Гј Г‹Г‚',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 19. Г‘ГҐГ¬ГҐГ©Г­Г»Г© Г®ГІГҐГ«Гј [LV]') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'20. Дуэль',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 20. Дуэль') imgui.Process = false
+			if imgui.Button(u8'20. Г„ГіГЅГ«Гј',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 20. Г„ГіГЅГ«Гј') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'21. Авторынок',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 21. Центральный авторынок') imgui.Process = false
+			if imgui.Button(u8'21. ГЂГўГІГ®Г°Г»Г­Г®ГЄ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 21. Г–ГҐГ­ГІГ°Г Г«ГјГ­Г»Г© Г ГўГІГ®Г°Г»Г­Г®ГЄ') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'22. Слет т/с',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 22. Слет транспорта') imgui.Process = false
+			if imgui.Button(u8'22. Г‘Г«ГҐГІ ГІ/Г±',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 22. Г‘Г«ГҐГІ ГІГ°Г Г­Г±ГЇГ®Г°ГІГ ') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'23. Свалка ЛС',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 23. Свалка LS') imgui.Process = false
+			if imgui.Button(u8'23. Г‘ГўГ Г«ГЄГ  Г‹Г‘',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 23. Г‘ГўГ Г«ГЄГ  LS') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'24. Свалка СФ',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 24. Свалка SF') imgui.Process = false
+			if imgui.Button(u8'24. Г‘ГўГ Г«ГЄГ  Г‘Г”',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 24. Г‘ГўГ Г«ГЄГ  SF') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'25. Свалка ЛВ',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 25. Свалка LV') imgui.Process = false
+			if imgui.Button(u8'25. Г‘ГўГ Г«ГЄГ  Г‹Г‚',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 25. Г‘ГўГ Г«ГЄГ  LV') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'26. Тюрьма',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 26. Тюрьма') imgui.Process = false
+			if imgui.Button(u8'26. Г’ГѕГ°ГјГ¬Г ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 26. Г’ГѕГ°ГјГ¬Г ') imgui.Process = false
 			gps2.v = not gps2.v
 			end
 			if imgui.Button(u8'27. UFC',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 27. UFC клуб') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 27. UFC ГЄГ«ГіГЎ') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'28. Пирс',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 28. Пирс (рыбалка)') imgui.Process = false
+			if imgui.Button(u8'28. ГЏГЁГ°Г±',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 28. ГЏГЁГ°Г± (Г°Г»ГЎГ Г«ГЄГ )') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'29. Магазин акс.',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 29. Магазин аксессуаров') imgui.Process = false
+			if imgui.Button(u8'29. ГЊГ ГЈГ Г§ГЁГ­ Г ГЄГ±.',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 29. ГЊГ ГЈГ Г§ГЁГ­ Г ГЄГ±ГҐГ±Г±ГіГ Г°Г®Гў') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'30. Набережная',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 30. Набережная') imgui.Process = false
+			if imgui.Button(u8'30. ГЌГ ГЎГҐГ°ГҐГ¦Г­Г Гї',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 30. ГЌГ ГЎГҐГ°ГҐГ¦Г­Г Гї') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'31. Яхт клуб',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 31. Яхт-клуб') imgui.Process = false
+			if imgui.Button(u8'31. ГџГµГІ ГЄГ«ГіГЎ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 31. ГџГµГІ-ГЄГ«ГіГЎ') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'32. Фам. квесты',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Важные места > 32. Семейные квесты') imgui.Process = false
+			if imgui.Button(u8'32. Г”Г Г¬. ГЄГўГҐГ±ГІГ»',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 1. Г‚Г Г¦Г­Г»ГҐ Г¬ГҐГ±ГІГ  > 32. Г‘ГҐГ¬ГҐГ©Г­Г»ГҐ ГЄГўГҐГ±ГІГ»') imgui.Process = false
 			gps2.v = not gps2.v
 			end
-			if imgui.Button(u8'Назад',  imgui.ImVec2(130, 30)) then
+			if imgui.Button(u8'ГЌГ Г§Г Г¤',  imgui.ImVec2(130, 30)) then
 			gps2.v = not gps2.v
 			gps1.v = not gps1.v
 			imgui.Process = gps1.v
@@ -496,143 +496,143 @@ end
 			imgui.SetNextWindowPos(imgui.ImVec2(so / 2.3, sp / 2), imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(200, 350)) --imgui.WindowFlags.MenuBar
 			imgui.Begin(u8'GPS', gps3.v, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoCollapse)
-			if imgui.Button(u8'1. Раз. пиццы',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 1. Развозчик пиццы') imgui.Process = false
+			if imgui.Button(u8'1. ГђГ Г§. ГЇГЁГ¶Г¶Г»',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 1. ГђГ Г§ГўГ®Г§Г·ГЁГЄ ГЇГЁГ¶Г¶Г»') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'2. Раз. материалов',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 2. Развозчик материалов') imgui.Process = false
+			if imgui.Button(u8'2. ГђГ Г§. Г¬Г ГІГҐГ°ГЁГ Г«Г®Гў',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 2. ГђГ Г§ГўГ®Г§Г·ГЁГЄ Г¬Г ГІГҐГ°ГЁГ Г«Г®Гў') imgui.Process = false
 			gps3.v = not gps3.v 
 			end
-			if imgui.Button(u8'3. Шахта',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 3. Шахта') imgui.Process = false
+			if imgui.Button(u8'3. ГГ ГµГІГ ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 3. ГГ ГµГІГ ') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'4. Завод',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 4. Завод') imgui.Process = false
+			if imgui.Button(u8'4. Г‡Г ГўГ®Г¤',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 4. Г‡Г ГўГ®Г¤') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'5. Ферма',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 5. Ферма') imgui.Process = false
+			if imgui.Button(u8'5. Г”ГҐГ°Г¬Г ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 5. Г”ГҐГ°Г¬Г ') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'6. Стоянка автобусов ЛС',  imgui.ImVec2(170, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 6. Стоянка автобусов LS') imgui.Process = false
+			if imgui.Button(u8'6. Г‘ГІГ®ГїГ­ГЄГ  Г ГўГІГ®ГЎГіГ±Г®Гў Г‹Г‘',  imgui.ImVec2(170, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 6. Г‘ГІГ®ГїГ­ГЄГ  Г ГўГІГ®ГЎГіГ±Г®Гў LS') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'7. Стоянка дальнобойщиков',  imgui.ImVec2(170, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 7. Стоянка дальнобойщиков') imgui.Process = false
+			if imgui.Button(u8'7. Г‘ГІГ®ГїГ­ГЄГ  Г¤Г Г«ГјГ­Г®ГЎГ®Г©Г№ГЁГЄГ®Гў',  imgui.ImVec2(170, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 7. Г‘ГІГ®ГїГ­ГЄГ  Г¤Г Г«ГјГ­Г®ГЎГ®Г©Г№ГЁГЄГ®Гў') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'8. Стоянка мореплавателей',  imgui.ImVec2(170, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 8. Стоянка мореплавателей') imgui.Process = false
+			if imgui.Button(u8'8. Г‘ГІГ®ГїГ­ГЄГ  Г¬Г®Г°ГҐГЇГ«Г ГўГ ГІГҐГ«ГҐГ©',  imgui.ImVec2(170, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 8. Г‘ГІГ®ГїГ­ГЄГ  Г¬Г®Г°ГҐГЇГ«Г ГўГ ГІГҐГ«ГҐГ©') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'9. Стоянка вертолётчиков',  imgui.ImVec2(170, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 9. Стоянка вертолётчиков') imgui.Process = false
+			if imgui.Button(u8'9. Г‘ГІГ®ГїГ­ГЄГ  ГўГҐГ°ГІГ®Г«ВёГІГ·ГЁГЄГ®Гў',  imgui.ImVec2(170, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 9. Г‘ГІГ®ГїГ­ГЄГ  ГўГҐГ°ГІГ®Г«ВёГІГ·ГЁГЄГ®Гў') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'10. Склад продуктов',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 10. Склад продуктов') imgui.Process = false
+			if imgui.Button(u8'10. Г‘ГЄГ«Г Г¤ ГЇГ°Г®Г¤ГіГЄГІГ®Гў',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 10. Г‘ГЄГ«Г Г¤ ГЇГ°Г®Г¤ГіГЄГІГ®Гў') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'11. Топливная база',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 11. Топливная база') imgui.Process = false
+			if imgui.Button(u8'11. Г’Г®ГЇГ«ГЁГўГ­Г Гї ГЎГ Г§Г ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 11. Г’Г®ГЇГ«ГЁГўГ­Г Гї ГЎГ Г§Г ') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'12. Стоянка автобусов ЛС #2',  imgui.ImVec2(170, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 12. Стоянка автобусов LS') imgui.Process = false
+			if imgui.Button(u8'12. Г‘ГІГ®ГїГ­ГЄГ  Г ГўГІГ®ГЎГіГ±Г®Гў Г‹Г‘ #2',  imgui.ImVec2(170, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 12. Г‘ГІГ®ГїГ­ГЄГ  Г ГўГІГ®ГЎГіГ±Г®Гў LS') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'13. Стоянка автобусов SF',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 13. Стоянка автобусов SF') imgui.Process = false
+			if imgui.Button(u8'13. Г‘ГІГ®ГїГ­ГЄГ  Г ГўГІГ®ГЎГіГ±Г®Гў SF',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 13. Г‘ГІГ®ГїГ­ГЄГ  Г ГўГІГ®ГЎГіГ±Г®Гў SF') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'14. Таксопарк LS',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 14. Таксопарк LS') imgui.Process = false
+			if imgui.Button(u8'14. Г’Г ГЄГ±Г®ГЇГ Г°ГЄ LS',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 14. Г’Г ГЄГ±Г®ГЇГ Г°ГЄ LS') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'15. Таксопарк SF',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 15. Таксопарк SF') imgui.Process = false
+			if imgui.Button(u8'15. Г’Г ГЄГ±Г®ГЇГ Г°ГЄ SF',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 15. Г’Г ГЄГ±Г®ГЇГ Г°ГЄ SF') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'16. Стоянка механиков #1',  imgui.ImVec2(170, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 16. Стоянка механиков #1') imgui.Process = false
+			if imgui.Button(u8'16. Г‘ГІГ®ГїГ­ГЄГ  Г¬ГҐГµГ Г­ГЁГЄГ®Гў #1',  imgui.ImVec2(170, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 16. Г‘ГІГ®ГїГ­ГЄГ  Г¬ГҐГµГ Г­ГЁГЄГ®Гў #1') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'17. Стоянка механиков #2',  imgui.ImVec2(170, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 17. Стоянка механиков #2') imgui.Process = false
+			if imgui.Button(u8'17. Г‘ГІГ®ГїГ­ГЄГ  Г¬ГҐГµГ Г­ГЁГЄГ®Гў #2',  imgui.ImVec2(170, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 17. Г‘ГІГ®ГїГ­ГЄГ  Г¬ГҐГµГ Г­ГЁГЄГ®Гў #2') imgui.Process = false
 			gps3.v = not gps3.v
 			end
 			if imgui.Button(u8'18. ST Club LS #1',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 18. SanTrope Club LS') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 18. SanTrope Club LS') imgui.Process = false
 			gps3.v = not gps3.v
 			end
 			if imgui.Button(u8'19. ST Club LS #2',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 19. SanTrope Club LS') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 19. SanTrope Club LS') imgui.Process = false
 			gps3.v = not gps3.v
 			end
 			if imgui.Button(u8'20. ST Club SF #1',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 20. SanTrope Club SF') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 20. SanTrope Club SF') imgui.Process = false
 			gps3.v = not gps3.v
 			end
 			if imgui.Button(u8'21. ST Club SF #2',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 21. SanTrope Club SF') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 21. SanTrope Club SF') imgui.Process = false
 			gps3.v = not gps3.v
 			end
 			if imgui.Button(u8'22. ST Club LV #1',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 22. SanTrope Club LV') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 22. SanTrope Club LV') imgui.Process = false
 			gps3.v = not gps3.v
 			end
 			if imgui.Button(u8'23. ST Club LV#2',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 23. SanTrope Club LV') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 23. SanTrope Club LV') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'24. Уборщик улиц',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 24. Уборщик улиц') imgui.Process = false
+			if imgui.Button(u8'24. Г“ГЎГ®Г°Г№ГЁГЄ ГіГ«ГЁГ¶',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 24. Г“ГЎГ®Г°Г№ГЁГЄ ГіГ«ГЁГ¶') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'25. Пирс (рыба)',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 25. Пирс (рыбалка)') imgui.Process = false
+			if imgui.Button(u8'25. ГЏГЁГ°Г± (Г°Г»ГЎГ )',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 25. ГЏГЁГ°Г± (Г°Г»ГЎГ Г«ГЄГ )') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'26. Вор деталей',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 26. Вор деталей') imgui.Process = false
+			if imgui.Button(u8'26. Г‚Г®Г° Г¤ГҐГІГ Г«ГҐГ©',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 26. Г‚Г®Г° Г¤ГҐГІГ Г«ГҐГ©') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'27. Продавец инструментов',  imgui.ImVec2(170, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 27. Продавец инструментов') imgui.Process = false
+			if imgui.Button(u8'27. ГЏГ°Г®Г¤Г ГўГҐГ¶ ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ®Гў',  imgui.ImVec2(170, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 27. ГЏГ°Г®Г¤Г ГўГҐГ¶ ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ®Гў') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'28. Работа механиков #1',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 28. Работа механиков #1') imgui.Process = false
+			if imgui.Button(u8'28. ГђГ ГЎГ®ГІГ  Г¬ГҐГµГ Г­ГЁГЄГ®Гў #1',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 28. ГђГ ГЎГ®ГІГ  Г¬ГҐГµГ Г­ГЁГЄГ®Гў #1') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'29. Работа механиков #2',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 29. Работа механиков #2') imgui.Process = false
+			if imgui.Button(u8'29. ГђГ ГЎГ®ГІГ  Г¬ГҐГµГ Г­ГЁГЄГ®Гў #2',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 29. ГђГ ГЎГ®ГІГ  Г¬ГҐГµГ Г­ГЁГЄГ®Гў #2') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'30. Работа механикв #3',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 30. Работа механиков #3') imgui.Process = false
+			if imgui.Button(u8'30. ГђГ ГЎГ®ГІГ  Г¬ГҐГµГ Г­ГЁГЄГў #3',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 30. ГђГ ГЎГ®ГІГ  Г¬ГҐГµГ Г­ГЁГЄГ®Гў #3') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'31. Инкосаторка LS',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 31. Работа инкассатора LS') imgui.Process = false
+			if imgui.Button(u8'31. Г€Г­ГЄГ®Г±Г ГІГ®Г°ГЄГ  LS',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 31. ГђГ ГЎГ®ГІГ  ГЁГ­ГЄГ Г±Г±Г ГІГ®Г°Г  LS') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'32. Инкосаторка SF',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 32. Работа инкоссатора SF') imgui.Process = false
+			if imgui.Button(u8'32. Г€Г­ГЄГ®Г±Г ГІГ®Г°ГЄГ  SF',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 32. ГђГ ГЎГ®ГІГ  ГЁГ­ГЄГ®Г±Г±Г ГІГ®Г°Г  SF') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'33. Инкосаторка LV',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 33. Работа инкассатора LV') imgui.Process = false
+			if imgui.Button(u8'33. Г€Г­ГЄГ®Г±Г ГІГ®Г°ГЄГ  LV',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 33. ГђГ ГЎГ®ГІГ  ГЁГ­ГЄГ Г±Г±Г ГІГ®Г°Г  LV') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'34. Работа пилота',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. Работа > 34. Работа пилота') imgui.Process = false
+			if imgui.Button(u8'34. ГђГ ГЎГ®ГІГ  ГЇГЁГ«Г®ГІГ ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 2. ГђГ ГЎГ®ГІГ  > 34. ГђГ ГЎГ®ГІГ  ГЇГЁГ«Г®ГІГ ') imgui.Process = false
 			gps3.v = not gps3.v
 			end
-			if imgui.Button(u8'Назад',  imgui.ImVec2(130, 30)) then
+			if imgui.Button(u8'ГЌГ Г§Г Г¤',  imgui.ImVec2(130, 30)) then
 			gps3.v = not gps3.v
 			gps1.v = not gps1.v
 			imgui.Process = gps1.v
@@ -647,53 +647,53 @@ end
 			imgui.SetNextWindowPos(imgui.ImVec2(so / 2.3, sp / 2), imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(200, 350)) --imgui.WindowFlags.MenuBar
 			imgui.Begin(u8'GPS', gps4.v, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoCollapse)
-			if imgui.Button(u8'1. Мэрия',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.Официальные орг. > 1. Мэрия')
+			if imgui.Button(u8'1. ГЊГЅГ°ГЁГї',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.ГЋГґГЁГ¶ГЁГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 1. ГЊГЅГ°ГЁГї')
 			imgui.Process = false
 			gps4.v = not gps4.v
 			end
-			if imgui.Button(u8'2. ФБР',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.Официальные орг. > 2. Федеральное Бюро Расследований') imgui.Process = false
+			if imgui.Button(u8'2. Г”ГЃГђ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.ГЋГґГЁГ¶ГЁГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 2. Г”ГҐГ¤ГҐГ°Г Г«ГјГ­Г®ГҐ ГЃГѕГ°Г® ГђГ Г±Г±Г«ГҐГ¤Г®ГўГ Г­ГЁГ©') imgui.Process = false
 			gps4.v = not gps4.v
 			end
 			if imgui.Button(u8'3. Army LV',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.Официальные орг. > 3. Сухопутные войска') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.ГЋГґГЁГ¶ГЁГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 3. Г‘ГіГµГ®ГЇГіГІГ­Г»ГҐ ГўГ®Г©Г±ГЄГ ') imgui.Process = false
 			gps4.v = not gps4.v
 			end
 			if imgui.Button(u8'4. LSPD',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.Официальные орг. > 4. Полиция Los-Santos') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.ГЋГґГЁГ¶ГЁГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 4. ГЏГ®Г«ГЁГ¶ГЁГї Los-Santos') imgui.Process = false
 			gps4.v = not gps4.v
 			end
 			if imgui.Button(u8'5. SFPD',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.Официальные орг. > 5. Полиция San-Fierro') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.ГЋГґГЁГ¶ГЁГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 5. ГЏГ®Г«ГЁГ¶ГЁГї San-Fierro') imgui.Process = false
 			gps4.v = not gps4.v
 			end
 			if imgui.Button(u8'6. LVPD',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.Официальные орг. > 6. Полиция Las-Venturas') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.ГЋГґГЁГ¶ГЁГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 6. ГЏГ®Г«ГЁГ¶ГЁГї Las-Venturas') imgui.Process = false
 			gps4.v = not gps4.v
 			end
 			if imgui.Button(u8'7. MCLS',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.Официальные орг. > 7. Больница Los-Santos') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.ГЋГґГЁГ¶ГЁГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 7. ГЃГ®Г«ГјГ­ГЁГ¶Г  Los-Santos') imgui.Process = false
 			gps4.v = not gps4.v
 			end
 			if imgui.Button(u8'8. MCSF',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.Официальные орг. > 8. Больница San-Fierro') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.ГЋГґГЁГ¶ГЁГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 8. ГЃГ®Г«ГјГ­ГЁГ¶Г  San-Fierro') imgui.Process = false
 			gps4.v = not gps4.v
 			end
 			if imgui.Button(u8'9. MCLV',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.Официальные орг. > 9. Больница Las-Venturas') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.ГЋГґГЁГ¶ГЁГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 9. ГЃГ®Г«ГјГ­ГЁГ¶Г  Las-Venturas') imgui.Process = false
 			gps4.v = not gps4.v
 			end
 			if imgui.Button(u8'10. CNN',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.Официальные орг. > 10. National Public Radio') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.ГЋГґГЁГ¶ГЁГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 10. National Public Radio') imgui.Process = false
 			gps4.v = not gps4.v
 			end
-			if imgui.Button(u8'11. Тюрьма',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.Официальные орг. > 11. Тбрьма Ред-Игл') imgui.Process = false
+			if imgui.Button(u8'11. Г’ГѕГ°ГјГ¬Г ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 3.ГЋГґГЁГ¶ГЁГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 11. Г’ГЎГ°ГјГ¬Г  ГђГҐГ¤-Г€ГЈГ«') imgui.Process = false
 			gps4.v = not gps4.v
 			end
 			
- 			if imgui.Button(u8'Назад',  imgui.ImVec2(130, 30)) then
+ 			if imgui.Button(u8'ГЌГ Г§Г Г¤',  imgui.ImVec2(130, 30)) then
 			gps1.v = not gps1.v
 			imgui.Process = gps1.v
 			gps4.v = not gps4.v
@@ -709,59 +709,59 @@ end
 			imgui.SetNextWindowSize(imgui.ImVec2(200, 350)) --imgui.WindowFlags.MenuBar
 			imgui.Begin(u8'GPS', gps5.v, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoCollapse)
 			if imgui.Button(u8'1. Pirus',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.Нелегальные орг. > 1. Pirus')  imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.ГЌГҐГ«ГҐГЈГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 1. Pirus')  imgui.Process = false
 			gps5.v = not gps5.v
 			end
 			if imgui.Button(u8'2. Grove Street',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.Нелегальные орг. > 2. Grove Street')  imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.ГЌГҐГ«ГҐГЈГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 2. Grove Street')  imgui.Process = false
 			gps5.v = not gps5.v
 			end
 			if imgui.Button(u8'3. Ballas',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.Нелегальные орг. > 3. Ballas')  imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.ГЌГҐГ«ГҐГЈГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 3. Ballas')  imgui.Process = false
 			gps5.v = not gps5.v
 			end
 			if imgui.Button(u8'4. Vagos',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.Нелегальные орг. > 4. Vagos')  imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.ГЌГҐГ«ГҐГЈГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 4. Vagos')  imgui.Process = false
 			gps5.v = not gps5.v
 			end
 			if imgui.Button(u8'5. Aztecas',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.Нелегальные орг. > 5. Aztecas')  imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.ГЌГҐГ«ГҐГЈГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 5. Aztecas')  imgui.Process = false
 			gps5.v = not gps5.v
 			end
 			if imgui.Button(u8'6. Rifa',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.Нелегальные орг. > 6. Rifa')  imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.ГЌГҐГ«ГҐГЈГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 6. Rifa')  imgui.Process = false
 			gps5.v = not gps5.v
 			end
 			if imgui.Button(u8'7. LCN',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.Нелегальные орг. > 7. La Costra Nostra')  imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.ГЌГҐГ«ГҐГЈГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 7. La Costra Nostra')  imgui.Process = false
 			gps5.v = not gps5.v
 			end
-			if imgui.Button(u8'8. Русская Мафия',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.Нелегальные орг. > 8. Русская Мафия')  imgui.Process = false
+			if imgui.Button(u8'8. ГђГіГ±Г±ГЄГ Гї ГЊГ ГґГЁГї',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.ГЌГҐГ«ГҐГЈГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 8. ГђГіГ±Г±ГЄГ Гї ГЊГ ГґГЁГї')  imgui.Process = false
 			gps5.v = not gps5.v
 			end
 			if imgui.Button(u8'9. Yakuza',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.Нелегальные орг. > 9. Yakuza')  imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.ГЌГҐГ«ГҐГЈГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 9. Yakuza')  imgui.Process = false
 			gps5.v = not gps5.v
 			end
 			if imgui.Button(u8'10. LZ',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.Нелегальные орг. > 10. Los Zetas')  imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.ГЌГҐГ«ГҐГЈГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 10. Los Zetas')  imgui.Process = false
 			gps5.v = not gps5.v
 			end
 			if imgui.Button(u8'11. HA',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, "/gps > 4.Нелегальные орг. > 11. Hell's Angels")  imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, "/gps > 4.ГЌГҐГ«ГҐГЈГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 11. Hell's Angels")  imgui.Process = false
 			gps5.v = not gps5.v
 			end
-			if imgui.Button(u8'12. Вор деталей',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.Нелегальные орг. > 12. Вор деталей')  imgui.Process = false
+			if imgui.Button(u8'12. Г‚Г®Г° Г¤ГҐГІГ Г«ГҐГ©',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.ГЌГҐГ«ГҐГЈГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 12. Г‚Г®Г° Г¤ГҐГІГ Г«ГҐГ©')  imgui.Process = false
 			gps5.v = not gps5.v
 			end
-			if imgui.Button(u8'13. Продавец инструментов',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.Нелегальные орг. > 13. Продавец инструментов')  imgui.Process = false
+			if imgui.Button(u8'13. ГЏГ°Г®Г¤Г ГўГҐГ¶ ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ®Гў',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 4.ГЌГҐГ«ГҐГЈГ Г«ГјГ­Г»ГҐ Г®Г°ГЈ. > 13. ГЏГ°Г®Г¤Г ГўГҐГ¶ ГЁГ­Г±ГІГ°ГіГ¬ГҐГ­ГІГ®Гў')  imgui.Process = false
 			gps5.v = not gps5.v
 			end
 			
- 			if imgui.Button(u8'Назад',  imgui.ImVec2(130, 30)) then
+ 			if imgui.Button(u8'ГЌГ Г§Г Г¤',  imgui.ImVec2(130, 30)) then
 			gps1.v = not gps1.v
 			imgui.Process = gps1.v
 			gps5.v = not gps5.v
@@ -776,89 +776,89 @@ end
 			imgui.SetNextWindowPos(imgui.ImVec2(so / 2.3, sp / 2), imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(200, 350)) --imgui.WindowFlags.MenuBar
 			imgui.Begin(u8'GPS', gps7.v, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoCollapse)
-			if imgui.Button(u8'1. Казино ЛВ',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 1. Казино 4 дракона')  imgui.Process = false
+			if imgui.Button(u8'1. ГЉГ Г§ГЁГ­Г® Г‹Г‚',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 1. ГЉГ Г§ГЁГ­Г® 4 Г¤Г°Г ГЄГ®Г­Г ')  imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'2. Казино СФ',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 2. Казино Royal') imgui.Process = false
+			if imgui.Button(u8'2. ГЉГ Г§ГЁГ­Г® Г‘Г”',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 2. ГЉГ Г§ГЁГ­Г® Royal') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'3. Война за КБ',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 3. Война за корабль') imgui.Process = false
+			if imgui.Button(u8'3. Г‚Г®Г©Г­Г  Г§Г  ГЉГЃ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 3. Г‚Г®Г©Г­Г  Г§Г  ГЄГ®Г°Г ГЎГ«Гј') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'4. Перегон Т/С',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 4. Перегон транспорта') imgui.Process = false
+			if imgui.Button(u8'4. ГЏГҐГ°ГҐГЈГ®Г­ Г’/Г‘',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 4. ГЏГҐГ°ГҐГЈГ®Г­ ГІГ°Г Г­Г±ГЇГ®Г°ГІГ ') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'5. Штрафстоянка',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 5. Штрафстоянка') imgui.Process = false
+			if imgui.Button(u8'5. ГГІГ°Г ГґГ±ГІГ®ГїГ­ГЄГ ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 5. ГГІГ°Г ГґГ±ГІГ®ГїГ­ГЄГ ') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'6. Спортзал LS',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 6. Спортзал Los-Santos') imgui.Process = false
+			if imgui.Button(u8'6. Г‘ГЇГ®Г°ГІГ§Г Г« LS',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 6. Г‘ГЇГ®Г°ГІГ§Г Г« Los-Santos') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'7. Спортзал SF',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 7. Спортзал San-Fierro') imgui.Process = false
+			if imgui.Button(u8'7. Г‘ГЇГ®Г°ГІГ§Г Г« SF',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 7. Г‘ГЇГ®Г°ГІГ§Г Г« San-Fierro') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'8. Спортзал LV',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 8. Спортзал Las-Venturas') imgui.Process = false
+			if imgui.Button(u8'8. Г‘ГЇГ®Г°ГІГ§Г Г« LV',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 8. Г‘ГЇГ®Г°ГІГ§Г Г« Las-Venturas') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'9. Притон',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 9. Притон') imgui.Process = false
+			if imgui.Button(u8'9. ГЏГ°ГЁГІГ®Г­',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 9. ГЏГ°ГЁГІГ®Г­') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'10. Магазин одежды #1',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 10. Магазин одежды Los-Santos') imgui.Process = false
+			if imgui.Button(u8'10. ГЊГ ГЈГ Г§ГЁГ­ Г®Г¤ГҐГ¦Г¤Г» #1',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 10. ГЊГ ГЈГ Г§ГЁГ­ Г®Г¤ГҐГ¦Г¤Г» Los-Santos') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'11. Магазин одежды #2',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 11. Магазин одежды Los-Santos') imgui.Process = false
+			if imgui.Button(u8'11. ГЊГ ГЈГ Г§ГЁГ­ Г®Г¤ГҐГ¦Г¤Г» #2',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 11. ГЊГ ГЈГ Г§ГЁГ­ Г®Г¤ГҐГ¦Г¤Г» Los-Santos') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'12. Комп. клуб',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 12. Компьютерный клуб') imgui.Process = false
+			if imgui.Button(u8'12. ГЉГ®Г¬ГЇ. ГЄГ«ГіГЎ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 12. ГЉГ®Г¬ГЇГјГѕГІГҐГ°Г­Г»Г© ГЄГ«ГіГЎ') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'13. Покупка инт. дома',  imgui.ImVec2(170, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 13. Покупка интерьера дома') imgui.Process = false
+			if imgui.Button(u8'13. ГЏГ®ГЄГіГЇГЄГ  ГЁГ­ГІ. Г¤Г®Г¬Г ',  imgui.ImVec2(170, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 13. ГЏГ®ГЄГіГЇГЄГ  ГЁГ­ГІГҐГ°ГјГҐГ°Г  Г¤Г®Г¬Г ') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'14. Покупка инт. гаража',  imgui.ImVec2(170, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 14. Покупка гаража') imgui.Process = false
+			if imgui.Button(u8'14. ГЏГ®ГЄГіГЇГЄГ  ГЁГ­ГІ. ГЈГ Г°Г Г¦Г ',  imgui.ImVec2(170, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 14. ГЏГ®ГЄГіГЇГЄГ  ГЈГ Г°Г Г¦Г ') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'15. Яхт-клуб',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 15. Яхт-клуб') imgui.Process = false
+			if imgui.Button(u8'15. ГџГµГІ-ГЄГ«ГіГЎ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 15. ГџГµГІ-ГЄГ«ГіГЎ') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'16. Магазин клад.',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 16. Магазин кладоискателя') imgui.Process = false
+			if imgui.Button(u8'16. ГЊГ ГЈГ Г§ГЁГ­ ГЄГ«Г Г¤.',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 16. ГЊГ ГЈГ Г§ГЁГ­ ГЄГ«Г Г¤Г®ГЁГ±ГЄГ ГІГҐГ«Гї') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'17. Спуск на санях',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 17. Спуск на санях') imgui.Process = false
+			if imgui.Button(u8'17. Г‘ГЇГіГ±ГЄ Г­Г  Г±Г Г­ГїГµ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 17. Г‘ГЇГіГ±ГЄ Г­Г  Г±Г Г­ГїГµ') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'18. Поле деревьев',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 18. Поле деревьев') imgui.Process = false
+			if imgui.Button(u8'18. ГЏГ®Г«ГҐ Г¤ГҐГ°ГҐГўГјГҐГў',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 18. ГЏГ®Г«ГҐ Г¤ГҐГ°ГҐГўГјГҐГў') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'19. Поле кустов',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 19. Поле кустов') imgui.Process = false
+			if imgui.Button(u8'19. ГЏГ®Г«ГҐ ГЄГіГ±ГІГ®Гў',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 19. ГЏГ®Г«ГҐ ГЄГіГ±ГІГ®Гў') imgui.Process = false
 			gps7.v = not gps7.v
 			end
-			if imgui.Button(u8'19. Садовод',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. Прочее > 20. Садовод') imgui.Process = false
+			if imgui.Button(u8'19. Г‘Г Г¤Г®ГўГ®Г¤',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 6. ГЏГ°Г®Г·ГҐГҐ > 20. Г‘Г Г¤Г®ГўГ®Г¤') imgui.Process = false
 			gps7.v = not gps7.v
 			end
 			
 			
- 			if imgui.Button(u8'Назад',  imgui.ImVec2(130, 30)) then
+ 			if imgui.Button(u8'ГЌГ Г§Г Г¤',  imgui.ImVec2(130, 30)) then
 			gps1.v = not gps1.v
 			imgui.Process = gps1.v
 			gps7.v = not gps7.v
@@ -873,85 +873,85 @@ end
 			imgui.SetNextWindowPos(imgui.ImVec2(so / 2.3, sp / 2), imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(200, 350)) --imgui.WindowFlags.MenuBar
 			imgui.Begin(u8'GPS', gps6.v, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoCollapse)
-			if imgui.Button(u8'1. Автосалон LS',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 1. Автосалон Los-Santos') imgui.Process = false
+			if imgui.Button(u8'1. ГЂГўГІГ®Г±Г Г«Г®Г­ LS',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 1. ГЂГўГІГ®Г±Г Г«Г®Г­ Los-Santos') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'2. Автосалон SF',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 2. Автосалон San-Fierro') imgui.Process = false
+			if imgui.Button(u8'2. ГЂГўГІГ®Г±Г Г«Г®Г­ SF',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 2. ГЂГўГІГ®Г±Г Г«Г®Г­ San-Fierro') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'3. Автосалон LV',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 3. Автосалон Las-Venturas') imgui.Process = false
+			if imgui.Button(u8'3. ГЂГўГІГ®Г±Г Г«Г®Г­ LV',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 3. ГЂГўГІГ®Г±Г Г«Г®Г­ Las-Venturas') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'4. Автосалон Real',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 4. Автосалон Platinum Cars') imgui.Process = false
+			if imgui.Button(u8'4. ГЂГўГІГ®Г±Г Г«Г®Г­ Real',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 4. ГЂГўГІГ®Г±Г Г«Г®Г­ Platinum Cars') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'5. Чип-тюнинг',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 5. Чип-тюнинг') imgui.Process = false
+			if imgui.Button(u8'5. Г—ГЁГЇ-ГІГѕГ­ГЁГ­ГЈ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 5. Г—ГЁГЇ-ГІГѕГ­ГЁГ­ГЈ') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'6. Подвеска',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 6. Подвеска') imgui.Process = false
+			if imgui.Button(u8'6. ГЏГ®Г¤ГўГҐГ±ГЄГ ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 6. ГЏГ®Г¤ГўГҐГ±ГЄГ ') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'7. Покрасочная',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 7. Покрасочная') imgui.Process = false
+			if imgui.Button(u8'7. ГЏГ®ГЄГ°Г Г±Г®Г·Г­Г Гї',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 7. ГЏГ®ГЄГ°Г Г±Г®Г·Г­Г Гї') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'8. Детейлинг центр',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 8. Детейлинг центр') imgui.Process = false
+			if imgui.Button(u8'8. Г„ГҐГІГҐГ©Г«ГЁГ­ГЈ Г¶ГҐГ­ГІГ°',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 8. Г„ГҐГІГҐГ©Г«ГЁГ­ГЈ Г¶ГҐГ­ГІГ°') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'9. Катерная база',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 9. Катерная база') imgui.Process = false
+			if imgui.Button(u8'9. ГЉГ ГІГҐГ°Г­Г Гї ГЎГ Г§Г ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 9. ГЉГ ГІГҐГ°Г­Г Гї ГЎГ Г§Г ') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'10. Авиасалон',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 10. Авиасалон') imgui.Process = false
+			if imgui.Button(u8'10. ГЂГўГЁГ Г±Г Г«Г®Г­',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 10. ГЂГўГЁГ Г±Г Г«Г®Г­') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'11. Авторынок ЛС',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 11. Авторынок Los-Santos') imgui.Process = false
+			if imgui.Button(u8'11. ГЂГўГІГ®Г°Г»Г­Г®ГЄ Г‹Г‘',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 11. ГЂГўГІГ®Г°Г»Г­Г®ГЄ Los-Santos') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'12. Автосервис Dillimore',  imgui.ImVec2(170, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 12. Автосервис Dillimore') imgui.Process = false
+			if imgui.Button(u8'12. ГЂГўГІГ®Г±ГҐГ°ГўГЁГ± Dillimore',  imgui.ImVec2(170, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 12. ГЂГўГІГ®Г±ГҐГ°ГўГЁГ± Dillimore') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'13. Автосервис SF',  imgui.ImVec2(170, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 13. Автосервис San-Fierro') imgui.Process = false
+			if imgui.Button(u8'13. ГЂГўГІГ®Г±ГҐГ°ГўГЁГ± SF',  imgui.ImVec2(170, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 13. ГЂГўГІГ®Г±ГҐГ°ГўГЁГ± San-Fierro') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'14. Автосервис LV',  imgui.ImVec2(170, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 14. Автосервис Las-Venturas') imgui.Process = false
+			if imgui.Button(u8'14. ГЂГўГІГ®Г±ГҐГ°ГўГЁГ± LV',  imgui.ImVec2(170, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 14. ГЂГўГІГ®Г±ГҐГ°ГўГЁГ± Las-Venturas') imgui.Process = false
 			gps6.v = not gps6.v
 			end
 			if imgui.Button(u8'15. Perfomance LS',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 15. Perfomance Los-Santos') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 15. Perfomance Los-Santos') imgui.Process = false
 			gps6.v = not gps6.v
 			end
 			if imgui.Button(u8'16. Perfomance LV',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 16. Perfomance Las-Venturas') imgui.Process = false
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 16. Perfomance Las-Venturas') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'17. Тюн. ателье',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 17. Тюнинг ателье') imgui.Process = false
+			if imgui.Button(u8'17. Г’ГѕГ­. Г ГІГҐГ«ГјГҐ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 17. Г’ГѕГ­ГЁГ­ГЈ Г ГІГҐГ«ГјГҐ') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'18. Покрасочная в/с',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 18. Покраска воздушного т/с') imgui.Process = false
+			if imgui.Button(u8'18. ГЏГ®ГЄГ°Г Г±Г®Г·Г­Г Гї Гў/Г±',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 18. ГЏГ®ГЄГ°Г Г±ГЄГ  ГўГ®Г§Г¤ГіГёГ­Г®ГЈГ® ГІ/Г±') imgui.Process = false
 			gps6.v = not gps6.v
 			end
-			if imgui.Button(u8'19. Яхт. клуб',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. Автосалоны и автосервисы > 19. Яхт-клуб') imgui.Process = false
+			if imgui.Button(u8'19. ГџГµГІ. ГЄГ«ГіГЎ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 5. ГЂГўГІГ®Г±Г Г«Г®Г­Г» ГЁ Г ГўГІГ®Г±ГҐГ°ГўГЁГ±Г» > 19. ГџГµГІ-ГЄГ«ГіГЎ') imgui.Process = false
 			gps6.v = not gps6.v
 			end
 			
 			
- 			if imgui.Button(u8'Назад',  imgui.ImVec2(130, 30)) then
+ 			if imgui.Button(u8'ГЌГ Г§Г Г¤',  imgui.ImVec2(130, 30)) then
 			gps1.v = not gps1.v
 			imgui.Process = gps1.v
 			gps6.v = not gps6.v
@@ -966,35 +966,35 @@ end
 			imgui.SetNextWindowPos(imgui.ImVec2(so / 2.3, sp / 2), imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(200, 350)) --imgui.WindowFlags.MenuBar
 			imgui.Begin(u8'GPS', gps8.v, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoCollapse)
-			if imgui.Button(u8'1. Ближ. банк',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 7. Поиск мест > 1. Найти ближайший банкомат') imgui.Process = false
+			if imgui.Button(u8'1. ГЃГ«ГЁГ¦. ГЎГ Г­ГЄ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 7. ГЏГ®ГЁГ±ГЄ Г¬ГҐГ±ГІ > 1. ГЌГ Г©ГІГЁ ГЎГ«ГЁГ¦Г Г©ГёГЁГ© ГЎГ Г­ГЄГ®Г¬Г ГІ') imgui.Process = false
 			gps8.v = not gps8.v
 			end
-			if imgui.Button(u8'2. Ближ 24/7',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 7. Поиск мест > 2. Найти ближайший 24/7') imgui.Process = false
+			if imgui.Button(u8'2. ГЃГ«ГЁГ¦ 24/7',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 7. ГЏГ®ГЁГ±ГЄ Г¬ГҐГ±ГІ > 2. ГЌГ Г©ГІГЁ ГЎГ«ГЁГ¦Г Г©ГёГЁГ© 24/7') imgui.Process = false
 			gps8.v = not gps8.v
 			end
-			if imgui.Button(u8'3. Ближ АЗС',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 7. Поиск мест > 3. Найти ближайший АЗС') imgui.Process = false
+			if imgui.Button(u8'3. ГЃГ«ГЁГ¦ ГЂГ‡Г‘',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 7. ГЏГ®ГЁГ±ГЄ Г¬ГҐГ±ГІ > 3. ГЌГ Г©ГІГЁ ГЎГ«ГЁГ¦Г Г©ГёГЁГ© ГЂГ‡Г‘') imgui.Process = false
 			gps8.v = not gps8.v
 			end
-			if imgui.Button(u8'4. Бизнес ($2500)',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 7. Поиск мест > 4. Найти бизнес') imgui.Process = false
+			if imgui.Button(u8'4. ГЃГЁГ§Г­ГҐГ± ($2500)',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 7. ГЏГ®ГЁГ±ГЄ Г¬ГҐГ±ГІ > 4. ГЌГ Г©ГІГЁ ГЎГЁГ§Г­ГҐГ±') imgui.Process = false
 			gps8.v = not gps8.v
 			end
-			if imgui.Button(u8'5. Ближ парк',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 7. Поиск мест > 5. Найти ближайший паркинг') imgui.Process = false
+			if imgui.Button(u8'5. ГЃГ«ГЁГ¦ ГЇГ Г°ГЄ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 7. ГЏГ®ГЁГ±ГЄ Г¬ГҐГ±ГІ > 5. ГЌГ Г©ГІГЁ ГЎГ«ГЁГ¦Г Г©ГёГЁГ© ГЇГ Г°ГЄГЁГ­ГЈ') imgui.Process = false
 			gps8.v = not gps8.v
 			end
-			if imgui.Button(u8'6. Паркинг',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 7. Поиск мест > 6. Найти паркинг') imgui.Process = false
+			if imgui.Button(u8'6. ГЏГ Г°ГЄГЁГ­ГЈ',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 7. ГЏГ®ГЁГ±ГЄ Г¬ГҐГ±ГІ > 6. ГЌГ Г©ГІГЁ ГЇГ Г°ГЄГЁГ­ГЈ') imgui.Process = false
 			gps8.v = not gps8.v
 			end
-			if imgui.Button(u8'7. Дом ($1500)',  imgui.ImVec2(130, 30)) then
-			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 7. Поиск мест > 7. Найти дом') imgui.Process = false
+			if imgui.Button(u8'7. Г„Г®Г¬ ($1500)',  imgui.ImVec2(130, 30)) then
+			sampSendDialogResponse(cfg.DialogID.DID, 1, -1, '/gps > 7. ГЏГ®ГЁГ±ГЄ Г¬ГҐГ±ГІ > 7. ГЌГ Г©ГІГЁ Г¤Г®Г¬') imgui.Process = false
 			gps8.v = not gps8.v
 			end
-			if imgui.Button(u8'Назад',  imgui.ImVec2(130, 30)) then
+			if imgui.Button(u8'ГЌГ Г§Г Г¤',  imgui.ImVec2(130, 30)) then
 			gps1.v = not gps1.v
 			imgui.Process = gps1.v
 			gps8.v = not gps8.v
@@ -1008,11 +1008,11 @@ end
 		local so, sp = getScreenResolution()
 		imgui.SetNextWindowPos(imgui.ImVec2(so / 2.8, sp / 2), imgui.ImVec2(0.5, 0.5))
         imgui.SetNextWindowSize(imgui.ImVec2(500, 250)) --imgui.WindowFlags.MenuBar
-		imgui.Begin(u8'MTools || Разраб: Dexter_Martelli', cum1.v, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'MTools || ГђГ Г§Г°Г ГЎ: Dexter_Martelli', cum1.v, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoCollapse)
 		if cid == nil then
-	    imgui.Text(u8"Жалоба/Вопрос от " .. cnick .. '[OFF]:')
+	    imgui.Text(u8"Г†Г Г«Г®ГЎГ /Г‚Г®ГЇГ°Г®Г± Г®ГІ " .. cnick .. '[OFF]:')
 	else
-	imgui.Text(u8"Жалоба/Вопрос от " .. cnick .. '[' .. ccd .. ']:')
+	imgui.Text(u8"Г†Г Г«Г®ГЎГ /Г‚Г®ГЇГ°Г®Г± Г®ГІ " .. cnick .. '[' .. ccd .. ']:')
 	end
 	imgui.Separator()
 	pp = string.format(u8" " .. first)
@@ -1023,58 +1023,58 @@ end
 	end
 		imgui.Separator()
 		local btn_size = imgui.ImVec2(100, 25)
-	if imgui.Button(u8'Уточните',  imgui.ImVec2(100, 25)) then
-        sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Доброго времени суток. Уточните пожалуйста | Приятной игры')
+	if imgui.Button(u8'Г“ГІГ®Г·Г­ГЁГІГҐ',  imgui.ImVec2(100, 25)) then
+        sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Г„Г®ГЎГ°Г®ГЈГ® ГўГ°ГҐГ¬ГҐГ­ГЁ Г±ГіГІГ®ГЄ. Г“ГІГ®Г·Г­ГЁГІГҐ ГЇГ®Г¦Г Г«ГіГ©Г±ГІГ  | ГЏГ°ГЁГїГІГ­Г®Г© ГЁГЈГ°Г»')
 		end
 				imgui.SameLine(nil, 3)
-		if imgui.Button(u8'Комфорт игры', imgui.ImVec2(100, 25)) then
-sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Если кто-то помешал комфорту Вашей игры - обратитесь на форум') 
+		if imgui.Button(u8'ГЉГ®Г¬ГґГ®Г°ГІ ГЁГЈГ°Г»', imgui.ImVec2(100, 25)) then
+sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Г…Г±Г«ГЁ ГЄГІГ®-ГІГ® ГЇГ®Г¬ГҐГёГ Г« ГЄГ®Г¬ГґГ®Г°ГІГі Г‚Г ГёГҐГ© ГЁГЈГ°Г» - Г®ГЎГ°Г ГІГЁГІГҐГ±Гј Г­Г  ГґГ®Г°ГіГ¬') 
 		cum1.v = not cum1.v
  end
 		imgui.SameLine(nil, 3)
-		if imgui.Button(u8"Начинаю работу",  imgui.ImVec2(100, 25)) then
+		if imgui.Button(u8"ГЌГ Г·ГЁГ­Г Гѕ Г°Г ГЎГ®ГІГі",  imgui.ImVec2(100, 25)) then
 		enableDialog(true)
-		local spa1 = string.format('Уважаемый ' .. cnick .. ', начинаю работу по Вашей жалобе!')
+		local spa1 = string.format('Г“ГўГ Г¦Г ГҐГ¬Г»Г© ' .. cnick .. ', Г­Г Г·ГЁГ­Г Гѕ Г°Г ГЎГ®ГІГі ГЇГ® Г‚Г ГёГҐГ© Г¦Г Г«Г®ГЎГҐ!')
 		sampSendDialogResponse(cfg.DialogID.DID, 1, -1, spa1) 
 		cum1.v = not cum1.v
        sec_window_state.v = not sec_window_state.v
 		imgui.Process = sec_window_state.v
 		end
-	if imgui.Button(u8'Нет информации', imgui.ImVec2(100, 25)) then
+	if imgui.Button(u8'ГЌГҐГІ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ', imgui.ImVec2(100, 25)) then
 	enableDialog(true)
-        sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Доброго времени суток. Нет информации | Приятной игры') 
+        sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Г„Г®ГЎГ°Г®ГЈГ® ГўГ°ГҐГ¬ГҐГ­ГЁ Г±ГіГІГ®ГЄ. ГЌГҐГІ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ | ГЏГ°ГЁГїГІГ­Г®Г© ГЁГЈГ°Г»') 
 		cum1.v = not cum1.v
 		imgui.Process = cum1.v
 		end
 				imgui.SameLine(nil, 3)
-		if imgui.Button(u8'Оффтоп',  imgui.ImVec2(100, 25)) then
+		if imgui.Button(u8'ГЋГґГґГІГ®ГЇ',  imgui.ImVec2(100, 25)) then
 		enableDialog(true)
-        sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Здравствуйте, прекратите Offtop. | Приятной игры')
+        sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Г‡Г¤Г°Г ГўГ±ГІГўГіГ©ГІГҐ, ГЇГ°ГҐГЄГ°Г ГІГЁГІГҐ Offtop. | ГЏГ°ГЁГїГІГ­Г®Г© ГЁГЈГ°Г»')
 				cum1.v = not cum1.v
 		imgui.Process = cum1.v
 		end
 		imgui.SameLine(nil, 3)
-		if imgui.Button(u8"Приятной игры",  imgui.ImVec2(100, 25)) then
+		if imgui.Button(u8"ГЏГ°ГЁГїГІГ­Г®Г© ГЁГЈГ°Г»",  imgui.ImVec2(100, 25)) then
 		enableDialog(true)
-		local spa2 = string.format('Уважаемый ' .. cnick .. '. Приятной игры на SanTrope Role Play!')
+		local spa2 = string.format('Г“ГўГ Г¦Г ГҐГ¬Г»Г© ' .. cnick .. '. ГЏГ°ГЁГїГІГ­Г®Г© ГЁГЈГ°Г» Г­Г  SanTrope Role Play!')
 		sampSendDialogResponse(cfg.DialogID.DID, 1, -1, spa2) 
 		cum1.v = not cum1.v
 		imgui.Process = cum1.v
 		end
-	if imgui.Button(u8'Не согласен с наказанием', imgui.ImVec2(100, 25)) then
+	if imgui.Button(u8'ГЌГҐ Г±Г®ГЈГ«Г Г±ГҐГ­ Г± Г­Г ГЄГ Г§Г Г­ГЁГҐГ¬', imgui.ImVec2(100, 25)) then
 	enableDialog(true)
-        sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Если Вы не согласны с наказанием - обратитесь на форум') 
+        sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Г…Г±Г«ГЁ Г‚Г» Г­ГҐ Г±Г®ГЈГ«Г Г±Г­Г» Г± Г­Г ГЄГ Г§Г Г­ГЁГҐГ¬ - Г®ГЎГ°Г ГІГЁГІГҐГ±Гј Г­Г  ГґГ®Г°ГіГ¬') 
 		cum1.v = not cum1.v
 		imgui.Process = cum1.v
 		end
 				imgui.SameLine(nil, 3)
-				 if imgui.Button(u8'Что случилось?',  imgui.ImVec2(100, 25)) then
+				 if imgui.Button(u8'Г—ГІГ® Г±Г«ГіГ·ГЁГ«Г®Г±Гј?',  imgui.ImVec2(100, 25)) then
 				 enableDialog(true)
-        sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Здравствуйте, что у Вас случилось? | Приятной игры')
+        sampSendDialogResponse(cfg.DialogID.DID, 1, -1, 'Г‡Г¤Г°Г ГўГ±ГІГўГіГ©ГІГҐ, Г·ГІГ® Гі Г‚Г Г± Г±Г«ГіГ·ГЁГ«Г®Г±Гј? | ГЏГ°ГЁГїГІГ­Г®Г© ГЁГЈГ°Г»')
 		cum1.v = not cum.v
 		imgui.Process = cum1.v
 		end
-if imgui.CustomButton(u8'Назад', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec2(130, 25)) then
+if imgui.CustomButton(u8'ГЌГ Г§Г Г¤', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec4(1.0,0.0,0.0,1.0), imgui.ImVec2(130, 25)) then
 			cum1.v = not cum1.v
 			main_window_state.v = not main_window_state.v
 			end
@@ -1083,10 +1083,10 @@ if imgui.CustomButton(u8'Назад', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0
 
 		imgui.SameLine(nil, 230)
 		--imgui.SetCursorPos(imgui.ImVec2(335, 215))
-		if imgui.Button(u8'Закрыть',  imgui.ImVec2(100, 25)) then
+		if imgui.Button(u8'Г‡Г ГЄГ°Г»ГІГј',  imgui.ImVec2(100, 25)) then
 				enableDialog(true)
 		sampCloseCurrentDialogWithButton(0) 
-		sampAddChatMessage("{1E90FF}[MHelper] {FA8072}Ладно, закрываю.", -1) 
+		sampAddChatMessage("{1E90FF}[MHelper] {FA8072}Г‹Г Г¤Г­Г®, Г§Г ГЄГ°Г»ГўГ Гѕ.", -1) 
 
 		cum1.v = not cum1.v
 		imgui.Process = cum1.v
@@ -1099,8 +1099,8 @@ if imgui.CustomButton(u8'Назад', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0
 		local st, sz = getScreenResolution()
 		imgui.SetNextWindowPos(imgui.ImVec2(st / 2, sz / 1.5), imgui.ImVec2(0.5, 0.5))
         imgui.SetNextWindowSize(imgui.ImVec2(450, 220))
-		imgui.Begin(u8'MTools || Разработчик: Dexter_Martelli', sec_window_state, imgui.WindowFlags.NoMove)
-		f = string.format(u8"Выйти в слежку за " .. cnick .."[" .. ccd .. "]")
+		imgui.Begin(u8'MTools || ГђГ Г§Г°Г ГЎГ®ГІГ·ГЁГЄ: Dexter_Martelli', sec_window_state, imgui.WindowFlags.NoMove)
+		f = string.format(u8"Г‚Г»Г©ГІГЁ Гў Г±Г«ГҐГ¦ГЄГі Г§Г  " .. cnick .."[" .. ccd .. "]")
 		spec = string.format('/sp ' .. ccd)
 		go = string.format('/go ' .. ccd)
 		if imgui.Button(f, imgui.ImVec2(140, 50)) then
@@ -1109,18 +1109,18 @@ if imgui.CustomButton(u8'Назад', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0
 		sec_window_state.v = not sec_window_state.v
 		end
 		imgui.SameLine(nil, 3)
-		f1 = string.format(u8"Телепортироваться к " .. cnick .."[" .. ccd .. "]")
+		f1 = string.format(u8"Г’ГҐГ«ГҐГЇГ®Г°ГІГЁГ°Г®ГўГ ГІГјГ±Гї ГЄ " .. cnick .."[" .. ccd .. "]")
 		if imgui.Button(f1, imgui.ImVec2(140, 50)) then
 		sampCloseCurrentDialogWithButton(0)
 		sampSendChat(go)
 		sec_window_state.v = not sec_window_state.v
 		end
 		imgui.SameLine(nil, 3)
-		f2 = string.format(u8"Ничего не делать")
+		f2 = string.format(u8"ГЌГЁГ·ГҐГЈГ® Г­ГҐ Г¤ГҐГ«Г ГІГј")
 		if imgui.Button(f2, imgui.ImVec2(140, 50)) then
 		sec_window_state.v = not sec_window_state.v
 		end
-		f4 = string.format(u8"Заспавнить " .. cnick .."[" .. ccd .. "]")
+		f4 = string.format(u8"Г‡Г Г±ГЇГ ГўГ­ГЁГІГј " .. cnick .."[" .. ccd .. "]")
 		spawn = string.format('/spawn ' .. ccd)
 		if imgui.Button(f4, imgui.ImVec2(140, 50)) then
 		sampCloseCurrentDialogWithButton(0)
@@ -1136,18 +1136,18 @@ if imgui.CustomButton(u8'Назад', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0
 	local sg, se = getScreenResolution()
 		imgui.SetNextWindowPos(imgui.ImVec2(sg / 1.50, se / 1.1), imgui.ImVec2(0.5, 0.5))
         imgui.SetNextWindowSize(imgui.ImVec2(500, 70))
-		imgui.Begin(u8'MTools || Разработчик: Dexter_Martelli', main_menu, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoTitleBar + imgui.WindowFlags.NoResize)
-		if imgui.Button(u8'/pm Вы тут?', imgui.ImVec2(100, 25)) then
-		gh  = string.format(u8"/pm " .. oc .. " Вы тут?")
+		imgui.Begin(u8'MTools || ГђГ Г§Г°Г ГЎГ®ГІГ·ГЁГЄ: Dexter_Martelli', main_menu, imgui.WindowFlags.NoMove + imgui.WindowFlags.NoTitleBar + imgui.WindowFlags.NoResize)
+		if imgui.Button(u8'/pm Г‚Г» ГІГіГІ?', imgui.ImVec2(100, 25)) then
+		gh  = string.format(u8"/pm " .. oc .. " Г‚Г» ГІГіГІ?")
 		sampSendChat(gh)
 		end
 		imgui.SameLine(nil, 3)
-		if imgui.Button(u8'Тихо кикнуть', imgui.ImVec2(100, 25)) then
+		if imgui.Button(u8'Г’ГЁГµГ® ГЄГЁГЄГ­ГіГІГј', imgui.ImVec2(100, 25)) then
 		skick  = string.format(u8"/skick " .. oc)
 		sampSendChat(skick)
 		end
 		imgui.SameLine(nil, 3)
-		if imgui.Button(u8'Слапнуть', imgui.ImVec2(100, 25)) then
+		if imgui.Button(u8'Г‘Г«Г ГЇГ­ГіГІГј', imgui.ImVec2(100, 25)) then
 		slap  = string.format(u8"/slap " .. oc)
 		sampSendChat(slap)
 		end
@@ -1156,17 +1156,17 @@ if imgui.CustomButton(u8'Назад', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0
 		local abra  = string.format(u8"/goto " .. oc)
 		sampSendChat(abra)
 		end
-		if imgui.Button(u8'Стата', imgui.ImVec2(100, 25)) then
+		if imgui.Button(u8'Г‘ГІГ ГІГ ', imgui.ImVec2(100, 25)) then
 		stats  = string.format(u8"/stats " .. oc)
 		sampSendChat(stats)
 		end
 		imgui.SameLine(nil, 3)
-		if imgui.Button(u8'Выдать HP', imgui.ImVec2(100, 25)) then
+		if imgui.Button(u8'Г‚Г»Г¤Г ГІГј HP', imgui.ImVec2(100, 25)) then
 		hp  = string.format(u8"/hp " .. oc )
 		sampSendChat(hp)
 		end
 		imgui.SameLine(nil, 3)
-		if imgui.Button(u8'Заспавнить', imgui.ImVec2(100, 25)) then
+		if imgui.Button(u8'Г‡Г Г±ГЇГ ГўГ­ГЁГІГј', imgui.ImVec2(100, 25)) then
 		soo  = string.format(u8"/spawn " .. oc)
 		sampSendChat(soo)
 		end
@@ -1183,7 +1183,7 @@ if imgui.CustomButton(u8'Назад', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0
 	local sg, se = getScreenResolution()
 		imgui.SetNextWindowPos(imgui.ImVec2(sg / 3.3, se / 2), imgui.ImVec2(0.5, 0.5))
         imgui.SetNextWindowSize(imgui.ImVec2(600, 300))
-		imgui.Begin(u8'MTools || Разработчик: Dexter_Martelli', slave, imgui.WindowFlags.NoResize)
+		imgui.Begin(u8'MTools || ГђГ Г§Г°Г ГЎГ®ГІГ·ГЁГЄ: Dexter_Martelli', slave, imgui.WindowFlags.NoResize)
 		if cfg.settings.forms == true then
 		tforms = imgui.ImBool(true)
 		else
@@ -1209,36 +1209,36 @@ if imgui.CustomButton(u8'Назад', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0
 		else
 		fixrec = imgui.ImBool(false)
 		end
-		if imgui.Checkbox(u8'Принятие форм', tforms) then
+		if imgui.Checkbox(u8'ГЏГ°ГЁГ­ГїГІГЁГҐ ГґГ®Г°Г¬', tforms) then
 		cfg.settings.forms = not cfg.settings.forms
 		inicfg.save(cfg, 'MHelper.ini')
 		end
 		imgui.SameLine(nil, 3)
-		hint("При нажатии на 0 принимается последняя форма из /a чата") -- сама подсказка
-		if imgui.Checkbox(u8'Z-меню', zm) then
+		hint("ГЏГ°ГЁ Г­Г Г¦Г ГІГЁГЁ Г­Г  0 ГЇГ°ГЁГ­ГЁГ¬Г ГҐГІГ±Гї ГЇГ®Г±Г«ГҐГ¤Г­ГїГї ГґГ®Г°Г¬Г  ГЁГ§ /a Г·Г ГІГ ") -- Г±Г Г¬Г  ГЇГ®Г¤Г±ГЄГ Г§ГЄГ 
+		if imgui.Checkbox(u8'Z-Г¬ГҐГ­Гѕ', zm) then
 		cfg.settings.fastm = not cfg.settings.fastm
 		inicfg.save(cfg, 'MHelper.ini')
 		end
 		imgui.SameLine(nil, 3)
-		hint("Если включено, то при зажатии Z появятся кнопки быстрого действия на каждом игроке") -- сама подсказка
-		if imgui.Checkbox(u8'E-меню', emenu) then
+		hint("Г…Г±Г«ГЁ ГўГЄГ«ГѕГ·ГҐГ­Г®, ГІГ® ГЇГ°ГЁ Г§Г Г¦Г ГІГЁГЁ Z ГЇГ®ГїГўГїГІГ±Гї ГЄГ­Г®ГЇГЄГЁ ГЎГ»Г±ГІГ°Г®ГЈГ® Г¤ГҐГ©Г±ГІГўГЁГї Г­Г  ГЄГ Г¦Г¤Г®Г¬ ГЁГЈГ°Г®ГЄГҐ") -- Г±Г Г¬Г  ГЇГ®Г¤Г±ГЄГ Г§ГЄГ 
+		if imgui.Checkbox(u8'E-Г¬ГҐГ­Гѕ', emenu) then
 		cfg.settings.emenu = not cfg.settings.emenu
 		inicfg.save(cfg, 'MHelper.ini')
 		end
 		imgui.SameLine(nil, 3)
-		hint("Если включено, то при зажатии E появится кнокпи быстрого действия на каждом т/с") -- сама подсказка
-		if imgui.Checkbox(u8'Помощник ответа на репорт', srep) then
+		hint("Г…Г±Г«ГЁ ГўГЄГ«ГѕГ·ГҐГ­Г®, ГІГ® ГЇГ°ГЁ Г§Г Г¦Г ГІГЁГЁ E ГЇГ®ГїГўГЁГІГ±Гї ГЄГ­Г®ГЄГЇГЁ ГЎГ»Г±ГІГ°Г®ГЈГ® Г¤ГҐГ©Г±ГІГўГЁГї Г­Г  ГЄГ Г¦Г¤Г®Г¬ ГІ/Г±") -- Г±Г Г¬Г  ГЇГ®Г¤Г±ГЄГ Г§ГЄГ 
+		if imgui.Checkbox(u8'ГЏГ®Г¬Г®Г№Г­ГЁГЄ Г®ГІГўГҐГІГ  Г­Г  Г°ГҐГЇГ®Г°ГІ', srep) then
 		cfg.settings.rephelp = not cfg.settings.rephelp
 		inicfg.save(cfg, 'MHelper.ini')
 		end
 		imgui.SameLine(nil, 3)
-		hint("Если включено, то появляется супер-окошко при ответе на репорт") -- сама подсказка
-		if imgui.Checkbox(u8'Нормальный /sp', fixrec) then
+		hint("Г…Г±Г«ГЁ ГўГЄГ«ГѕГ·ГҐГ­Г®, ГІГ® ГЇГ®ГїГўГ«ГїГҐГІГ±Гї Г±ГіГЇГҐГ°-Г®ГЄГ®ГёГЄГ® ГЇГ°ГЁ Г®ГІГўГҐГІГҐ Г­Г  Г°ГҐГЇГ®Г°ГІ") -- Г±Г Г¬Г  ГЇГ®Г¤Г±ГЄГ Г§ГЄГ 
+		if imgui.Checkbox(u8'ГЌГ®Г°Г¬Г Г«ГјГ­Г»Г© /sp', fixrec) then
 		cfg.settings.fixrec = not cfg.settings.fixrec
 		inicfg.save(cfg, 'MHelper.ini')
 		end
 		imgui.SameLine(nil, 3)
-		hint("Если включено, то всякие штуки в /sp убираются.") -- сама подсказка
+		hint("Г…Г±Г«ГЁ ГўГЄГ«ГѕГ·ГҐГ­Г®, ГІГ® ГўГ±ГїГЄГЁГҐ ГёГІГіГЄГЁ Гў /sp ГіГЎГЁГ°Г ГѕГІГ±Гї.") -- Г±Г Г¬Г  ГЇГ®Г¤Г±ГЄГ Г§ГЄГ 
 		
  imgui.End()
  end
@@ -1248,28 +1248,28 @@ if imgui.CustomButton(u8'Назад', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0
 			local sg, se = getScreenResolution()
 			imgui.SetNextWindowPos(imgui.ImVec2(sg / 3.3, se / 2), imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(600, 300))
-			imgui.Begin(u8'MTools || Разработчик: Dexter_Martelli', help, imgui.WindowFlags.NoResize)
-			local text = '{FFA500}Здесь Вы сможете узнать команды/кнокпи скрипта и что они делают?'
+			imgui.Begin(u8'MTools || ГђГ Г§Г°Г ГЎГ®ГІГ·ГЁГЄ: Dexter_Martelli', help, imgui.WindowFlags.NoResize)
+			local text = '{FFA500}Г‡Г¤ГҐГ±Гј Г‚Г» Г±Г¬Г®Г¦ГҐГІГҐ ГіГ§Г­Г ГІГј ГЄГ®Г¬Г Г­Г¤Г»/ГЄГ­Г®ГЄГЇГЁ Г±ГЄГ°ГЁГЇГІГ  ГЁ Г·ГІГ® Г®Г­ГЁ Г¤ГҐГ«Г ГѕГІ?'
 			imgui.TextColoredRGB(text)
-			imgui.Text(u8'Команды:')
-			local sm = '{1E90FF}/sm{EE82EE} - ставит метку на вашей карте по координатам {1E90FF}[{7FFF00}/sm X Y Z{1E90FF}]'
-			local regrep = '{1E90FF}/regnewrep{EE82EE} - регистрирует новое окно репорта {1E90FF}[{7FFF00}/regnewrep{1E90FF}]'
-			local mh = '{1E90FF}/mh{EE82EE} - настройки скрипта (будут дополняться) {1E90FF}[{7FFF00}/mh{1E90FF}]'
+			imgui.Text(u8'ГЉГ®Г¬Г Г­Г¤Г»:')
+			local sm = '{1E90FF}/sm{EE82EE} - Г±ГІГ ГўГЁГІ Г¬ГҐГІГЄГі Г­Г  ГўГ ГёГҐГ© ГЄГ Г°ГІГҐ ГЇГ® ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ Г¬ {1E90FF}[{7FFF00}/sm X Y Z{1E90FF}]'
+			local regrep = '{1E90FF}/regnewrep{EE82EE} - Г°ГҐГЈГЁГ±ГІГ°ГЁГ°ГіГҐГІ Г­Г®ГўГ®ГҐ Г®ГЄГ­Г® Г°ГҐГЇГ®Г°ГІГ  {1E90FF}[{7FFF00}/regnewrep{1E90FF}]'
+			local mh = '{1E90FF}/mh{EE82EE} - Г­Г Г±ГІГ°Г®Г©ГЄГЁ Г±ГЄГ°ГЁГЇГІГ  (ГЎГіГ¤ГіГІ Г¤Г®ГЇГ®Г«Г­ГїГІГјГ±Гї) {1E90FF}[{7FFF00}/mh{1E90FF}]'
 			
-			local mypos = '{1E90FF}/mypos{EE82EE} - выводит в чат Ваши координаты {1E90FF}[{7FFF00}/mypos{1E90FF}]'
+			local mypos = '{1E90FF}/mypos{EE82EE} - ГўГ»ГўГ®Г¤ГЁГІ Гў Г·Г ГІ Г‚Г ГёГЁ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ» {1E90FF}[{7FFF00}/mypos{1E90FF}]'
 			imgui.TextColoredRGB(sm)
 			imgui.SameLine(nil, 3)
-			hint("Например: /sm 228 1377 6666 !все что после точки игнорируем!") -- сама подсказка
+			hint("ГЌГ ГЇГ°ГЁГ¬ГҐГ°: /sm 228 1377 6666 !ГўГ±ГҐ Г·ГІГ® ГЇГ®Г±Г«ГҐ ГІГ®Г·ГЄГЁ ГЁГЈГ­Г®Г°ГЁГ°ГіГҐГ¬!") -- Г±Г Г¬Г  ГЇГ®Г¤Г±ГЄГ Г§ГЄГ 
 			imgui.TextColoredRGB(mypos)
 			imgui.TextColoredRGB(regrep)
 			imgui.TextColoredRGB(mh)
-			imgui.Text(u8'Клавиши:')
+			imgui.Text(u8'ГЉГ«Г ГўГЁГёГЁ:')
 			imgui.SameLine(nil, 3)
-			hint("Клавиши будут работать в том случае, если не открыт диалог/чат") -- сама подсказка
-			local pervay = '{1E90FF}1{EE82EE} - скрывает/показывает курсор если баганулся{1E90FF}'
-			local Z = '{1E90FF}Z (зажать){EE82EE} - создает меню на игроке с быстрыми действиями'
-			local E = '{1E90FF}E (зажать){EE82EE} - создает меню на т/с с быстрыми действиями'
-			local zero = '{1E90FF}0{EE82EE} - принимает последнюю форму на выдачу наказания из /a чата'
+			hint("ГЉГ«Г ГўГЁГёГЁ ГЎГіГ¤ГіГІ Г°Г ГЎГ®ГІГ ГІГј Гў ГІГ®Г¬ Г±Г«ГіГ·Г ГҐ, ГҐГ±Г«ГЁ Г­ГҐ Г®ГІГЄГ°Г»ГІ Г¤ГЁГ Г«Г®ГЈ/Г·Г ГІ") -- Г±Г Г¬Г  ГЇГ®Г¤Г±ГЄГ Г§ГЄГ 
+			local pervay = '{1E90FF}1{EE82EE} - Г±ГЄГ°Г»ГўГ ГҐГІ/ГЇГ®ГЄГ Г§Г»ГўГ ГҐГІ ГЄГіГ°Г±Г®Г° ГҐГ±Г«ГЁ ГЎГ ГЈГ Г­ГіГ«Г±Гї{1E90FF}'
+			local Z = '{1E90FF}Z (Г§Г Г¦Г ГІГј){EE82EE} - Г±Г®Г§Г¤Г ГҐГІ Г¬ГҐГ­Гѕ Г­Г  ГЁГЈГ°Г®ГЄГҐ Г± ГЎГ»Г±ГІГ°Г»Г¬ГЁ Г¤ГҐГ©Г±ГІГўГЁГїГ¬ГЁ'
+			local E = '{1E90FF}E (Г§Г Г¦Г ГІГј){EE82EE} - Г±Г®Г§Г¤Г ГҐГІ Г¬ГҐГ­Гѕ Г­Г  ГІ/Г± Г± ГЎГ»Г±ГІГ°Г»Г¬ГЁ Г¤ГҐГ©Г±ГІГўГЁГїГ¬ГЁ'
+			local zero = '{1E90FF}0{EE82EE} - ГЇГ°ГЁГ­ГЁГ¬Г ГҐГІ ГЇГ®Г±Г«ГҐГ¤Г­ГѕГѕ ГґГ®Г°Г¬Гі Г­Г  ГўГ»Г¤Г Г·Гі Г­Г ГЄГ Г§Г Г­ГЁГї ГЁГ§ /a Г·Г ГІГ '
 			imgui.TextColoredRGB(pervay)
 			imgui.TextColoredRGB(Z)
 			imgui.TextColoredRGB(E)
@@ -1285,17 +1285,17 @@ if imgui.CustomButton(u8'Назад', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0
 			local sg, se = getScreenResolution()
 			imgui.SetNextWindowPos(imgui.ImVec2(sg / 3.3, se / 2), imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(600, 300))
-			imgui.Begin(u8'MTools || Разработчик: Dexter_Martelli', povs, imgui.WindowFlags.NoResize)
-			if imgui.Button(u8'Выдать HP', imgui.ImVec2(150, 70)) then
-			sampAddChatMessage('Открываем фам')
+			imgui.Begin(u8'MTools || ГђГ Г§Г°Г ГЎГ®ГІГ·ГЁГЄ: Dexter_Martelli', povs, imgui.WindowFlags.NoResize)
+			if imgui.Button(u8'Г‚Г»Г¤Г ГІГј HP', imgui.ImVec2(150, 70)) then
+			sampAddChatMessage('ГЋГІГЄГ°Г»ГўГ ГҐГ¬ ГґГ Г¬')
 			sampSendChat('/fam')
 			proof(1)
 			end
-			if imgui.Button(u8'Настройки семьи', imgui.ImVec2(150, 70)) then
+			if imgui.Button(u8'ГЌГ Г±ГІГ°Г®Г©ГЄГЁ Г±ГҐГ¬ГјГЁ', imgui.ImVec2(150, 70)) then
 			sampSendChat('/fam')
 			proof(2)
 			end
-			if imgui.Button(u8'Заспавнить всех в радиусе 50 метров', imgui.ImVec2(150, 70)) then
+			if imgui.Button(u8'Г‡Г Г±ГЇГ ГўГ­ГЁГІГј ГўГ±ГҐГµ Гў Г°Г Г¤ГЁГіГ±ГҐ 50 Г¬ГҐГІГ°Г®Гў', imgui.ImVec2(150, 70)) then
 			
 --			print(f66)
 			lua_thread.create(function()
@@ -1304,7 +1304,7 @@ if imgui.CustomButton(u8'Назад', imgui.ImVec4(0.0,0.0,0.0,1.0), imgui.ImVec4(1.0
 			sampSendChat('/spawn ' .. f66)
 			wait(2000)
 			if f66 == -1 then
-			local farch  = string.format('[MHelper] Игроки в радусе 50 метров {EE82EE}успешно{1E90FF} были заспавнены!')
+			local farch  = string.format('[MHelper] Г€ГЈГ°Г®ГЄГЁ Гў Г°Г Г¤ГіГ±ГҐ 50 Г¬ГҐГІГ°Г®Гў {EE82EE}ГіГ±ГЇГҐГёГ­Г®{1E90FF} ГЎГ»Г«ГЁ Г§Г Г±ГЇГ ГўГ­ГҐГ­Г»!')
 			sampAddChatMessage(farch, 0x1E90FF)
 			break
 			end
@@ -1342,7 +1342,7 @@ lua_thread.create(function()
 
 end
 		
-		got = 'Нет форм для принятия.'
+		got = 'ГЌГҐГІ ГґГ®Г°Г¬ Г¤Г«Гї ГЇГ°ГЁГ­ГїГІГЁГї.'
 	
 function main()
 
@@ -1363,13 +1363,14 @@ povs.v = not povs.v
 imgui.Process = povs.v
 end)
 while not isSampAvailable() do wait(50) end
+autoupdate("https://gist.githubusercontent.com/M0rtelli/de2309930d8201e561d018359dac76f3/raw", '['..string.upper(thisScript().name)..']: ', "https://raw.githubusercontent.com/M0rtelli/MHelper/main/MHelper.lua")
 if not isSampfuncsLoaded() or not isSampLoaded() then
         return
     end
 	 local font = renderCreateFont("Tahoma", 8, 5)
   while true do
    wait(50)
-   -- если тексдравы активны и врублена функция в /mh, то sampTextdrawDelete(id)
+   -- ГҐГ±Г«ГЁ ГІГҐГЄГ±Г¤Г°Г ГўГ» Г ГЄГІГЁГўГ­Г» ГЁ ГўГ°ГіГЎГ«ГҐГ­Г  ГґГіГ­ГЄГ¶ГЁГї Гў /mh, ГІГ® sampTextdrawDelete(id)
     if isKeyJustPressed(49) and not sampIsChatInputActive() and not sampIsDialogActive()  then
 	imgui.ShowCursor = not imgui.ShowCursor
 	end
@@ -1398,10 +1399,10 @@ if not isSampfuncsLoaded() or not isSampLoaded() then
 								if drawClickableText(font, "Slap UP", plsX + 25, plsY + 30, 0xFFFFFFFF, 0xFFFF0000) then
                                     slapp(id)
                                 end
-								if drawClickableText(font, "ТП к себе", plsX + 25, plsY + 45, 0xFFFFFFFF, 0xFFFF0000) then
+								if drawClickableText(font, "Г’ГЏ ГЄ Г±ГҐГЎГҐ", plsX + 25, plsY + 45, 0xFFFFFFFF, 0xFFFF0000) then
                                     ghtp(id)
                                 end
-								if drawClickableText(font, "ТП к нему", plsX + 25, plsY + 60, 0xFFFFFFFF, 0xFFFF0000) then
+								if drawClickableText(font, "Г’ГЏ ГЄ Г­ГҐГ¬Гі", plsX + 25, plsY + 60, 0xFFFFFFFF, 0xFFFF0000) then
                                     gtp(id)
                                 end
                             end
@@ -1423,11 +1424,11 @@ if not isSampfuncsLoaded() or not isSampLoaded() then
 								local plX, plY, plZ = getCarCoordinates(handlecar)
                                 local plsX, plsY = convert3DCoordsToScreen(plX, plY, plZ)
 								--local nickz = sampGetPlayerNickname(id)
-								local ex = string.format('Вытащить авто')
+								local ex = string.format('Г‚Г»ГІГ Г№ГЁГІГј Г ГўГІГ®')
 								if drawClickableText(font, ex, plsX + 25, plsY, 0xFFFFFFFF, 0xFF00FF7F) then
                                     sampSendChat('/gethereveh ' .. ts)
                                 end
-								if drawClickableText(font, 'Заспавнить авто', plsX + 25, plsY + 15, 0xFFFFFFFF, 0xFF00FF7F) then
+								if drawClickableText(font, 'Г‡Г Г±ГЇГ ГўГ­ГЁГІГј Г ГўГІГ®', plsX + 25, plsY + 15, 0xFFFFFFFF, 0xFF00FF7F) then
                                     sampSendChat('/spcarid ' .. ts)
                                 end
                             end
@@ -1444,7 +1445,7 @@ if not isSampfuncsLoaded() or not isSampLoaded() then
    end
    
    if isKeyJustPressed(48) and not sampIsChatInputActive() and not sampIsDialogActive() and cfg.settings.forms then
-   if got == 'Нет форм для принятия.' then
+   if got == 'ГЌГҐГІ ГґГ®Г°Г¬ Г¤Г«Гї ГЇГ°ГЁГ­ГїГІГЁГї.' then
       printStringNow('Not successfully!', 3000)
    else
    sampSendChat(got, -1)
@@ -1544,7 +1545,7 @@ end
  
 function regnewrep()
 cfg.DialogID.DID = iddial
-newid  = string.format('[MHelper] Новый ID диалога был {EE82EE}успешно{1E90FF} зарегистрирован!')
+newid  = string.format('[MHelper] ГЌГ®ГўГ»Г© ID Г¤ГЁГ Г«Г®ГЈГ  ГЎГ»Г« {EE82EE}ГіГ±ГЇГҐГёГ­Г®{1E90FF} Г§Г Г°ГҐГЈГЁГ±ГІГ°ГЁГ°Г®ГўГ Г­!')
 sampAddChatMessage(newid, 0x1E90FF)
 inicfg.save(cfg, 'MHelper.ini')
 end
@@ -1713,18 +1714,18 @@ style2()
 
 function sampev.onServerMessage(color, text) -- creating message hook 
 	
-	if text:match('(%w+_%w+) .*(%d+) | %d+ аккаунт.*') then
-	local cumnick, cumidnick, numakk = text:match('(%w+_%w+) %p(%d+) | (%d+) аккаунт.*')
+	if text:match('(%w+_%w+) .*(%d+) | %d+ Г ГЄГЄГ ГіГ­ГІ.*') then
+	local cumnick, cumidnick, numakk = text:match('(%w+_%w+) %p(%d+) | (%d+) Г ГЄГЄГ ГіГ­ГІ.*')
 	local cligr = sampGetPlayerColor(cumidnick)
 	local cligr = ARGBtoRGB(cligr)
 	cligr = string.format("%06X",cligr)
 	--sampAddChatMessage(cligr, -1)
 	 
-	local ret = string.format('{' .. cligr .. '}' ..cumnick .. '{FFFFFF}' .. ' (' .. cumidnick .. ' ID | ' .. numakk .. ' - номер аккаунта)')
+	local ret = string.format('{' .. cligr .. '}' ..cumnick .. '{FFFFFF}' .. ' (' .. cumidnick .. ' ID | ' .. numakk .. ' - Г­Г®Г¬ГҐГ° Г ГЄГЄГ ГіГ­ГІГ )')
 	sampAddChatMessage(ret, -1)
 	return false
 	end
-	local nickad, nickk = text:match('(%w+_%w+).+ рассмотривает жалобу от (%w+_%w+)')
+	local nickad, nickk = text:match('(%w+_%w+).+ Г°Г Г±Г±Г¬Г®ГІГ°ГЁГўГ ГҐГІ Г¦Г Г«Г®ГЎГі Г®ГІ (%w+_%w+)')
 	if nickad and nickk then
 	local _, ass = sampGetPlayerIdByCharHandle(PLAYER_PED)
 	local name = sampGetPlayerNickname(ass)
@@ -1733,7 +1734,7 @@ function sampev.onServerMessage(color, text) -- creating message hook
 	sampAddChatMessage(nickk, -1)
 	end
 	end
-	local nickadm, id_adm, nick1, id1, otvet = text:match("(%w+_%w+)(.*) ответил (%w+_%w+)%s%[(%d*)%]:(.+)")
+	local nickadm, id_adm, nick1, id1, otvet = text:match("(%w+_%w+)(.*) Г®ГІГўГҐГІГЁГ« (%w+_%w+)%s%[(%d*)%]:(.+)")
 	 if nickadm and nick1 and id1 then 
 		faq = id
 	  end
@@ -1817,7 +1818,7 @@ function ARGBtoRGB(color)
     return rgb
 end
 
-function hint(text) -- код
+function hint(text) -- ГЄГ®Г¤
   lua_thread.create(
     function()
       imgui.TextDisabled("(?)")
@@ -1880,4 +1881,4 @@ function imgui.TextColoredRGB(text)
 
     render_text(text)
 end
---молодец никитос, пол тысячи строк кода
+--Г¬Г®Г«Г®Г¤ГҐГ¶ Г­ГЁГЄГЁГІГ®Г±, ГЇГ®Г« ГІГ»Г±ГїГ·ГЁ Г±ГІГ°Г®ГЄ ГЄГ®Г¤Г 
